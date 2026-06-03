@@ -1,0 +1,448 @@
+{
+  "mcpTranslationVersion": "0.1",
+  "target": {
+    "ordId": "sap.s4:apiResource:WAREHOUSESTORAGEBIN_0001:v1",
+    "type": "edmx"
+  },
+  "serverInfo": {
+    "name": "sap.mcp/sap_self",
+    "title": "sap_self",
+    "version": "1.0.0",
+    "description": "MCP server for the sap_self service."
+  },
+  "tools": [
+    {
+      "name": "get_metadata_sap_self",
+      "title": "get_metadata_sap_self",
+      "description": "Get metadata of the OData service with optional filtering to reduce token consumption.\nReturns the metadata in XML format, which can be used to discover available entities and their properties.\nCall this endpoint every time before you call other tools to ensure understanding of the schema.\nBased on the metadata, you can dynamically create an OData request.\n\nUse filtering parameters to get specific metadata sections. Without parameters, this tool returns the complete XML metadata (which might be huge).\nOnly use the specified enum values for the filtering parameters.\n",
+      "odataType": {
+        "metadataRequest": {}
+      }
+    },
+    {
+      "name": "batch_for_sap_self",
+      "title": "batch_for_sap_self",
+      "description": "Execute multiple OData operations in a single batch request using the $batch endpoint. This allows you to combine multiple tool calls into one HTTP request, improving efficiency when performing multiple operations.",
+      "odataType": {
+        "batchRequest": {}
+      }
+    },
+    {
+      "name": "list_warehousestoragebin_for_sap_self",
+      "title": "list_WarehouseStorageBin_for_sap_self",
+      "description": "Retrieve a list of entities from the WarehouseStorageBin collection in the sap_self service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseStorageBin",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "count"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "create_warehousestoragebin_for_sap_self",
+      "title": "create_WarehouseStorageBin_for_sap_self",
+      "description": "Create a new instance of the WarehouseStorageBin EntitySet in the sap_self service. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseStorageBin",
+          "crudOperation": "create",
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "EWMStorageBin",
+              "newParameterName": "ewmstoragebin"
+            },
+            {
+              "name": "EWMStorageType",
+              "newParameterName": "ewmstoragetype"
+            },
+            {
+              "name": "EWMStorBinVerifiedByMobileID",
+              "newParameterName": "ewmstorbinverifiedbymobileid"
+            },
+            {
+              "name": "EWMStorBinFreeDefinedAisleText",
+              "newParameterName": "ewmstorbinfreedefinedaisletext"
+            },
+            {
+              "name": "EWMStorBinFreeDefinedStackText",
+              "newParameterName": "ewmstorbinfreedefinedstacktext"
+            },
+            {
+              "name": "EWMStorBinFreeDefinedLevelText",
+              "newParameterName": "ewmstorbinfreedefinedleveltext"
+            },
+            {
+              "name": "EWMStorageBinMaximumWeight",
+              "newParameterName": "ewmstoragebinmaximumweight"
+            },
+            {
+              "name": "EWMStorageBinMaximumVolume",
+              "newParameterName": "ewmstoragebinmaximumvolume"
+            },
+            {
+              "name": "EWMStorBinTotalCapacityValue",
+              "newParameterName": "ewmstorbintotalcapacityvalue"
+            },
+            {
+              "name": "EWMStorBinWidthCoordinateValue",
+              "newParameterName": "ewmstorbinwidthcoordinatevalue"
+            },
+            {
+              "name": "EWMStorBinLengthCoordinateVal",
+              "newParameterName": "ewmstorbinlengthcoordinateval"
+            },
+            {
+              "name": "EWMStorBinHeightCoordinateVal",
+              "newParameterName": "ewmstorbinheightcoordinateval"
+            },
+            {
+              "name": "EWMStorageBinAngleValue",
+              "newParameterName": "ewmstoragebinanglevalue"
+            },
+            {
+              "name": "EWMStorageSection",
+              "newParameterName": "ewmstoragesection"
+            },
+            {
+              "name": "EWMStorageBinType",
+              "newParameterName": "ewmstoragebintype"
+            },
+            {
+              "name": "EWMStorageBinAccessType",
+              "newParameterName": "ewmstoragebinaccesstype"
+            },
+            {
+              "name": "EWMStorageBinSection",
+              "newParameterName": "ewmstoragebinsection"
+            },
+            {
+              "name": "EWMStorBinFreeDfndSectionText",
+              "newParameterName": "ewmstorbinfreedfndsectiontext"
+            },
+            {
+              "name": "EWMStorageGroup",
+              "newParameterName": "ewmstoragegroup"
+            },
+            {
+              "name": "SAP__Messages",
+              "newParameterName": "sap_messages"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "update_warehousestoragebin_for_sap_self",
+      "title": "update_WarehouseStorageBin_for_sap_self",
+      "description": "Update an entity in WarehouseStorageBin EntitySet in the sap_self service. Provide the key properties to identify the entity and the properties to update in the request body. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseStorageBin",
+          "crudOperation": "update",
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "EWMStorageBin",
+              "newParameterName": "ewmstoragebin"
+            },
+            {
+              "name": "EWMStorBinVerifiedByMobileID",
+              "newParameterName": "ewmstorbinverifiedbymobileid"
+            },
+            {
+              "name": "EWMStorBinFreeDefinedAisleText",
+              "newParameterName": "ewmstorbinfreedefinedaisletext"
+            },
+            {
+              "name": "EWMStorBinFreeDefinedStackText",
+              "newParameterName": "ewmstorbinfreedefinedstacktext"
+            },
+            {
+              "name": "EWMStorBinFreeDefinedLevelText",
+              "newParameterName": "ewmstorbinfreedefinedleveltext"
+            },
+            {
+              "name": "EWMStorageBinMaximumWeight",
+              "newParameterName": "ewmstoragebinmaximumweight"
+            },
+            {
+              "name": "EWMStorageBinMaximumVolume",
+              "newParameterName": "ewmstoragebinmaximumvolume"
+            },
+            {
+              "name": "EWMStorBinTotalCapacityValue",
+              "newParameterName": "ewmstorbintotalcapacityvalue"
+            },
+            {
+              "name": "EWMStorBinWidthCoordinateValue",
+              "newParameterName": "ewmstorbinwidthcoordinatevalue"
+            },
+            {
+              "name": "EWMStorBinLengthCoordinateVal",
+              "newParameterName": "ewmstorbinlengthcoordinateval"
+            },
+            {
+              "name": "EWMStorBinHeightCoordinateVal",
+              "newParameterName": "ewmstorbinheightcoordinateval"
+            },
+            {
+              "name": "EWMStorageBinAngleValue",
+              "newParameterName": "ewmstoragebinanglevalue"
+            },
+            {
+              "name": "EWMStorageSection",
+              "newParameterName": "ewmstoragesection"
+            },
+            {
+              "name": "EWMStorageBinType",
+              "newParameterName": "ewmstoragebintype"
+            },
+            {
+              "name": "EWMStorageBinAccessType",
+              "newParameterName": "ewmstoragebinaccesstype"
+            },
+            {
+              "name": "EWMStorageBinSection",
+              "newParameterName": "ewmstoragebinsection"
+            },
+            {
+              "name": "EWMStorBinFreeDfndSectionText",
+              "newParameterName": "ewmstorbinfreedfndsectiontext"
+            },
+            {
+              "name": "EWMStorageGroup",
+              "newParameterName": "ewmstoragegroup"
+            },
+            {
+              "name": "SAP__Messages",
+              "newParameterName": "sap_messages"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_warehousestoragebin_for_sap_self",
+      "title": "get_WarehouseStorageBin_for_sap_self",
+      "description": "Retrieve a single entity by its key from the WarehouseStorageBin collection in the sap_self service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseStorageBin",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "EWMStorageBin",
+              "newParameterName": "ewmstoragebin"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_warehousestoragebin_for_sap_self",
+      "title": "count_WarehouseStorageBin_for_sap_self",
+      "description": "Get the total count of entities in the WarehouseStorageBin collection in the sap_self service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseStorageBin",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_unblockstockremoval_on_sap_self_warehousestoragebintype",
+      "title": "action_UnblockStockRemoval_on_sap_self_warehousestoragebintype",
+      "description": "OData bound action: UnblockStockRemoval on entity SAP__self.WarehouseStorageBinType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseStorageBin",
+          "operation": {
+            "name": "UnblockStockRemoval",
+            "type": "action",
+            "parameters": []
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "EWMStorageBin",
+              "newParameterName": "ewmstoragebin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_unblockputaway_on_sap_self_warehousestoragebintype",
+      "title": "action_UnblockPutaway_on_sap_self_warehousestoragebintype",
+      "description": "OData bound action: UnblockPutaway on entity SAP__self.WarehouseStorageBinType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseStorageBin",
+          "operation": {
+            "name": "UnblockPutaway",
+            "type": "action",
+            "parameters": []
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "EWMStorageBin",
+              "newParameterName": "ewmstoragebin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_blockstockremoval_on_sap_self_warehousestoragebintype",
+      "title": "action_BlockStockRemoval_on_sap_self_warehousestoragebintype",
+      "description": "OData bound action: BlockStockRemoval on entity SAP__self.WarehouseStorageBinType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseStorageBin",
+          "operation": {
+            "name": "BlockStockRemoval",
+            "type": "action",
+            "parameters": []
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "EWMStorageBin",
+              "newParameterName": "ewmstoragebin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_blockputawayandstockremoval_on_sap_self_warehousestoragebintype",
+      "title": "action_BlockPutawayAndStockRemoval_on_sap_self_warehousestoragebintype",
+      "description": "OData bound action: BlockPutawayAndStockRemoval on entity SAP__self.WarehouseStorageBinType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseStorageBin",
+          "operation": {
+            "name": "BlockPutawayAndStockRemoval",
+            "type": "action",
+            "parameters": []
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "EWMStorageBin",
+              "newParameterName": "ewmstoragebin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_unblockputawayandstockremoval_on_sap_self_warehousestoragebintype",
+      "title": "action_UnblockPutawayAndStockRemoval_on_sap_self_warehousestoragebintype",
+      "description": "OData bound action: UnblockPutawayAndStockRemoval on entity SAP__self.WarehouseStorageBinType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseStorageBin",
+          "operation": {
+            "name": "UnblockPutawayAndStockRemoval",
+            "type": "action",
+            "parameters": []
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "EWMStorageBin",
+              "newParameterName": "ewmstoragebin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_blockputaway_on_sap_self_warehousestoragebintype",
+      "title": "action_BlockPutaway_on_sap_self_warehousestoragebintype",
+      "description": "OData bound action: BlockPutaway on entity SAP__self.WarehouseStorageBinType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseStorageBin",
+          "operation": {
+            "name": "BlockPutaway",
+            "type": "action",
+            "parameters": []
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "EWMStorageBin",
+              "newParameterName": "ewmstoragebin"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

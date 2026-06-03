@@ -1,0 +1,2237 @@
+{
+  "mcpTranslationVersion": "0.1",
+  "target": {
+    "ordId": "sap.s4:apiResource:OP_API_BATCH_SRV_0001:v1",
+    "type": "edmx"
+  },
+  "serverInfo": {
+    "name": "sap.mcp/cds_api_batch_srv",
+    "title": "cds_api_batch_srv",
+    "version": "1.0.0",
+    "description": "MCP server for the cds_api_batch_srv service."
+  },
+  "tools": [
+    {
+      "name": "get_metadata_cds_api_batch_srv",
+      "title": "get_metadata_cds_api_batch_srv",
+      "description": "Get metadata of the OData service with optional filtering to reduce token consumption.\nReturns the metadata in XML format, which can be used to discover available entities and their properties.\nCall this endpoint every time before you call other tools to ensure understanding of the schema.\nBased on the metadata, you can dynamically create an OData request.\n\nUse filtering parameters to get specific metadata sections. Without parameters, this tool returns the complete XML metadata (which might be huge).\nOnly use the specified enum values for the filtering parameters.\n",
+      "odataType": {
+        "metadataRequest": {}
+      }
+    },
+    {
+      "name": "batch_for_cds_api_batch_srv",
+      "title": "batch_for_cds_api_batch_srv",
+      "description": "Execute multiple OData operations in a single batch request using the $batch endpoint. This allows you to combine multiple tool calls into one HTTP request, improving efficiency when performing multiple operations.",
+      "odataType": {
+        "batchRequest": {}
+      }
+    },
+    {
+      "name": "list_batch_for_cds_api_batch_srv",
+      "title": "list_Batch_for_cds_api_batch_srv",
+      "description": "Retrieve a list of entities from the Batch collection in the cds_api_batch_srv service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "Batch",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "inlinecount"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "create_batch_for_cds_api_batch_srv",
+      "title": "create_Batch_for_cds_api_batch_srv",
+      "description": "Create a new instance of the Batch EntitySet in the cds_api_batch_srv service. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "Batch",
+          "crudOperation": "create",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "BatchIsMarkedForDeletion",
+              "newParameterName": "batchismarkedfordeletion"
+            },
+            {
+              "name": "MatlBatchIsInRstrcdUseStock",
+              "newParameterName": "matlbatchisinrstrcdusestock"
+            },
+            {
+              "name": "Supplier",
+              "newParameterName": "supplier"
+            },
+            {
+              "name": "BatchBySupplier",
+              "newParameterName": "batchbysupplier"
+            },
+            {
+              "name": "CountryOfOrigin",
+              "newParameterName": "countryoforigin"
+            },
+            {
+              "name": "RegionOfOrigin",
+              "newParameterName": "regionoforigin"
+            },
+            {
+              "name": "MatlBatchAvailabilityDate",
+              "newParameterName": "matlbatchavailabilitydate"
+            },
+            {
+              "name": "ShelfLifeExpirationDate",
+              "newParameterName": "shelflifeexpirationdate"
+            },
+            {
+              "name": "ManufactureDate",
+              "newParameterName": "manufacturedate"
+            },
+            {
+              "name": "FreeDefinedDate1",
+              "newParameterName": "freedefineddate1"
+            },
+            {
+              "name": "FreeDefinedDate2",
+              "newParameterName": "freedefineddate2"
+            },
+            {
+              "name": "FreeDefinedDate3",
+              "newParameterName": "freedefineddate3"
+            },
+            {
+              "name": "FreeDefinedDate4",
+              "newParameterName": "freedefineddate4"
+            },
+            {
+              "name": "FreeDefinedDate5",
+              "newParameterName": "freedefineddate5"
+            },
+            {
+              "name": "FreeDefinedDate6",
+              "newParameterName": "freedefineddate6"
+            },
+            {
+              "name": "to_BatchCharc",
+              "newParameterName": "to_batchcharc"
+            },
+            {
+              "name": "to_BatchClass",
+              "newParameterName": "to_batchclass"
+            },
+            {
+              "name": "to_BatchPlant",
+              "newParameterName": "to_batchplant"
+            },
+            {
+              "name": "to_BatchText",
+              "newParameterName": "to_batchtext"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "update_batch_for_cds_api_batch_srv",
+      "title": "update_Batch_for_cds_api_batch_srv",
+      "description": "Update an entity in Batch EntitySet in the cds_api_batch_srv service. Provide the key properties to identify the entity and the properties to update in the request body. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "Batch",
+          "crudOperation": "update",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "BatchIsMarkedForDeletion",
+              "newParameterName": "batchismarkedfordeletion"
+            },
+            {
+              "name": "MatlBatchIsInRstrcdUseStock",
+              "newParameterName": "matlbatchisinrstrcdusestock"
+            },
+            {
+              "name": "Supplier",
+              "newParameterName": "supplier"
+            },
+            {
+              "name": "BatchBySupplier",
+              "newParameterName": "batchbysupplier"
+            },
+            {
+              "name": "CountryOfOrigin",
+              "newParameterName": "countryoforigin"
+            },
+            {
+              "name": "RegionOfOrigin",
+              "newParameterName": "regionoforigin"
+            },
+            {
+              "name": "MatlBatchAvailabilityDate",
+              "newParameterName": "matlbatchavailabilitydate"
+            },
+            {
+              "name": "ShelfLifeExpirationDate",
+              "newParameterName": "shelflifeexpirationdate"
+            },
+            {
+              "name": "ManufactureDate",
+              "newParameterName": "manufacturedate"
+            },
+            {
+              "name": "FreeDefinedDate1",
+              "newParameterName": "freedefineddate1"
+            },
+            {
+              "name": "FreeDefinedDate2",
+              "newParameterName": "freedefineddate2"
+            },
+            {
+              "name": "FreeDefinedDate3",
+              "newParameterName": "freedefineddate3"
+            },
+            {
+              "name": "FreeDefinedDate4",
+              "newParameterName": "freedefineddate4"
+            },
+            {
+              "name": "FreeDefinedDate5",
+              "newParameterName": "freedefineddate5"
+            },
+            {
+              "name": "FreeDefinedDate6",
+              "newParameterName": "freedefineddate6"
+            },
+            {
+              "name": "to_BatchCharc",
+              "newParameterName": "to_batchcharc"
+            },
+            {
+              "name": "to_BatchClass",
+              "newParameterName": "to_batchclass"
+            },
+            {
+              "name": "to_BatchPlant",
+              "newParameterName": "to_batchplant"
+            },
+            {
+              "name": "to_BatchText",
+              "newParameterName": "to_batchtext"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_batch_for_cds_api_batch_srv",
+      "title": "get_Batch_for_cds_api_batch_srv",
+      "description": "Retrieve a single entity by its key from the Batch collection in the cds_api_batch_srv service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "Batch",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_batch_for_cds_api_batch_srv",
+      "title": "count_Batch_for_cds_api_batch_srv",
+      "description": "Get the total count of entities in the Batch collection in the cds_api_batch_srv service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "Batch",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_batchcharc_for_cds_api_batch_srv",
+      "title": "list_BatchCharc_for_cds_api_batch_srv",
+      "description": "Retrieve a list of entities from the BatchCharc collection in the cds_api_batch_srv service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchCharc",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "inlinecount"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_batchcharc_for_cds_api_batch_srv",
+      "title": "get_BatchCharc_for_cds_api_batch_srv",
+      "description": "Retrieve a single entity by its key from the BatchCharc collection in the cds_api_batch_srv service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchCharc",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "CharcInternalID",
+              "newParameterName": "charcinternalid"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_batchcharc_for_cds_api_batch_srv",
+      "title": "count_BatchCharc_for_cds_api_batch_srv",
+      "description": "Get the total count of entities in the BatchCharc collection in the cds_api_batch_srv service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchCharc",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_batchcharcvalue_for_cds_api_batch_srv",
+      "title": "list_BatchCharcValue_for_cds_api_batch_srv",
+      "description": "Retrieve a list of entities from the BatchCharcValue collection in the cds_api_batch_srv service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchCharcValue",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "inlinecount"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "create_batchcharcvalue_for_cds_api_batch_srv",
+      "title": "create_BatchCharcValue_for_cds_api_batch_srv",
+      "description": "Create a new instance of the BatchCharcValue EntitySet in the cds_api_batch_srv service. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchCharcValue",
+          "crudOperation": "create",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "CharcInternalID",
+              "newParameterName": "charcinternalid"
+            },
+            {
+              "name": "CharcValueDependency",
+              "newParameterName": "charcvaluedependency"
+            },
+            {
+              "name": "CharcValue",
+              "newParameterName": "charcvalue"
+            },
+            {
+              "name": "CharcFromNumericValue",
+              "newParameterName": "charcfromnumericvalue"
+            },
+            {
+              "name": "CharcFromNumericValueUnit",
+              "newParameterName": "charcfromnumericvalueunit"
+            },
+            {
+              "name": "CharcToNumericValue",
+              "newParameterName": "charctonumericvalue"
+            },
+            {
+              "name": "CharcToNumericValueUnit",
+              "newParameterName": "charctonumericvalueunit"
+            },
+            {
+              "name": "CharcFromDecimalValue",
+              "newParameterName": "charcfromdecimalvalue"
+            },
+            {
+              "name": "CharcToDecimalValue",
+              "newParameterName": "charctodecimalvalue"
+            },
+            {
+              "name": "CharcFromAmount",
+              "newParameterName": "charcfromamount"
+            },
+            {
+              "name": "CharcToAmount",
+              "newParameterName": "charctoamount"
+            },
+            {
+              "name": "Currency",
+              "newParameterName": "currency"
+            },
+            {
+              "name": "CharcFromDate",
+              "newParameterName": "charcfromdate"
+            },
+            {
+              "name": "CharcToDate",
+              "newParameterName": "charctodate"
+            },
+            {
+              "name": "CharcFromTime",
+              "newParameterName": "charcfromtime"
+            },
+            {
+              "name": "CharcToTime",
+              "newParameterName": "charctotime"
+            },
+            {
+              "name": "to_BatchCharc",
+              "newParameterName": "to_batchcharc"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "update_batchcharcvalue_for_cds_api_batch_srv",
+      "title": "update_BatchCharcValue_for_cds_api_batch_srv",
+      "description": "Update an entity in BatchCharcValue EntitySet in the cds_api_batch_srv service. Provide the key properties to identify the entity and the properties to update in the request body. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchCharcValue",
+          "crudOperation": "update",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "CharcInternalID",
+              "newParameterName": "charcinternalid"
+            },
+            {
+              "name": "CharcValuePositionNumber",
+              "newParameterName": "charcvaluepositionnumber"
+            },
+            {
+              "name": "CharcValueDependency",
+              "newParameterName": "charcvaluedependency"
+            },
+            {
+              "name": "CharcValue",
+              "newParameterName": "charcvalue"
+            },
+            {
+              "name": "CharcFromNumericValue",
+              "newParameterName": "charcfromnumericvalue"
+            },
+            {
+              "name": "CharcFromNumericValueUnit",
+              "newParameterName": "charcfromnumericvalueunit"
+            },
+            {
+              "name": "CharcToNumericValue",
+              "newParameterName": "charctonumericvalue"
+            },
+            {
+              "name": "CharcToNumericValueUnit",
+              "newParameterName": "charctonumericvalueunit"
+            },
+            {
+              "name": "CharcFromDecimalValue",
+              "newParameterName": "charcfromdecimalvalue"
+            },
+            {
+              "name": "CharcToDecimalValue",
+              "newParameterName": "charctodecimalvalue"
+            },
+            {
+              "name": "CharcFromAmount",
+              "newParameterName": "charcfromamount"
+            },
+            {
+              "name": "CharcToAmount",
+              "newParameterName": "charctoamount"
+            },
+            {
+              "name": "Currency",
+              "newParameterName": "currency"
+            },
+            {
+              "name": "CharcFromDate",
+              "newParameterName": "charcfromdate"
+            },
+            {
+              "name": "CharcToDate",
+              "newParameterName": "charctodate"
+            },
+            {
+              "name": "CharcFromTime",
+              "newParameterName": "charcfromtime"
+            },
+            {
+              "name": "CharcToTime",
+              "newParameterName": "charctotime"
+            },
+            {
+              "name": "to_BatchCharc",
+              "newParameterName": "to_batchcharc"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "delete_batchcharcvalue_for_cds_api_batch_srv",
+      "title": "delete_BatchCharcValue_for_cds_api_batch_srv",
+      "description": "Delete an entity from BatchCharcValue EntitySet in the cds_api_batch_srv service.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchCharcValue",
+          "crudOperation": "delete",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "CharcInternalID",
+              "newParameterName": "charcinternalid"
+            },
+            {
+              "name": "CharcValuePositionNumber",
+              "newParameterName": "charcvaluepositionnumber"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_batchcharcvalue_for_cds_api_batch_srv",
+      "title": "get_BatchCharcValue_for_cds_api_batch_srv",
+      "description": "Retrieve a single entity by its key from the BatchCharcValue collection in the cds_api_batch_srv service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchCharcValue",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "CharcInternalID",
+              "newParameterName": "charcinternalid"
+            },
+            {
+              "name": "CharcValuePositionNumber",
+              "newParameterName": "charcvaluepositionnumber"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_batchcharcvalue_for_cds_api_batch_srv",
+      "title": "count_BatchCharcValue_for_cds_api_batch_srv",
+      "description": "Get the total count of entities in the BatchCharcValue collection in the cds_api_batch_srv service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchCharcValue",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_batchclass_for_cds_api_batch_srv",
+      "title": "list_BatchClass_for_cds_api_batch_srv",
+      "description": "Retrieve a list of entities from the BatchClass collection in the cds_api_batch_srv service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchClass",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "inlinecount"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "create_batchclass_for_cds_api_batch_srv",
+      "title": "create_BatchClass_for_cds_api_batch_srv",
+      "description": "Create a new instance of the BatchClass EntitySet in the cds_api_batch_srv service. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchClass",
+          "crudOperation": "create",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "ClassInternalID",
+              "newParameterName": "classinternalid"
+            },
+            {
+              "name": "to_Batch",
+              "newParameterName": "to_batch"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "delete_batchclass_for_cds_api_batch_srv",
+      "title": "delete_BatchClass_for_cds_api_batch_srv",
+      "description": "Delete an entity from BatchClass EntitySet in the cds_api_batch_srv service.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchClass",
+          "crudOperation": "delete",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_batchclass_for_cds_api_batch_srv",
+      "title": "get_BatchClass_for_cds_api_batch_srv",
+      "description": "Retrieve a single entity by its key from the BatchClass collection in the cds_api_batch_srv service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchClass",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_batchclass_for_cds_api_batch_srv",
+      "title": "count_BatchClass_for_cds_api_batch_srv",
+      "description": "Get the total count of entities in the BatchClass collection in the cds_api_batch_srv service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchClass",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_batchplant_for_cds_api_batch_srv",
+      "title": "list_BatchPlant_for_cds_api_batch_srv",
+      "description": "Retrieve a list of entities from the BatchPlant collection in the cds_api_batch_srv service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchPlant",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "inlinecount"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "update_batchplant_for_cds_api_batch_srv",
+      "title": "update_BatchPlant_for_cds_api_batch_srv",
+      "description": "Update an entity in BatchPlant EntitySet in the cds_api_batch_srv service. Provide the key properties to identify the entity and the properties to update in the request body. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchPlant",
+          "crudOperation": "update",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "Plant",
+              "newParameterName": "plant"
+            },
+            {
+              "name": "InventoryValuationType",
+              "newParameterName": "inventoryvaluationtype"
+            },
+            {
+              "name": "to_Batch",
+              "newParameterName": "to_batch"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_batchplant_for_cds_api_batch_srv",
+      "title": "get_BatchPlant_for_cds_api_batch_srv",
+      "description": "Retrieve a single entity by its key from the BatchPlant collection in the cds_api_batch_srv service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchPlant",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "Plant",
+              "newParameterName": "plant"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_batchplant_for_cds_api_batch_srv",
+      "title": "count_BatchPlant_for_cds_api_batch_srv",
+      "description": "Get the total count of entities in the BatchPlant collection in the cds_api_batch_srv service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchPlant",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_batchtext_for_cds_api_batch_srv",
+      "title": "list_BatchText_for_cds_api_batch_srv",
+      "description": "Retrieve a list of entities from the BatchText collection in the cds_api_batch_srv service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchText",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "inlinecount"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "update_batchtext_for_cds_api_batch_srv",
+      "title": "update_BatchText_for_cds_api_batch_srv",
+      "description": "Update an entity in BatchText EntitySet in the cds_api_batch_srv service. Provide the key properties to identify the entity and the properties to update in the request body. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchText",
+          "crudOperation": "update",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "Language",
+              "newParameterName": "language"
+            },
+            {
+              "name": "BatchDescription",
+              "newParameterName": "batchdescription"
+            },
+            {
+              "name": "to_Batch",
+              "newParameterName": "to_batch"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "delete_batchtext_for_cds_api_batch_srv",
+      "title": "delete_BatchText_for_cds_api_batch_srv",
+      "description": "Delete an entity from BatchText EntitySet in the cds_api_batch_srv service.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchText",
+          "crudOperation": "delete",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "Language",
+              "newParameterName": "language"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_batchtext_for_cds_api_batch_srv",
+      "title": "get_BatchText_for_cds_api_batch_srv",
+      "description": "Retrieve a single entity by its key from the BatchText collection in the cds_api_batch_srv service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchText",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "Language",
+              "newParameterName": "language"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_batchtext_for_cds_api_batch_srv",
+      "title": "count_BatchText_for_cds_api_batch_srv",
+      "description": "Get the total count of entities in the BatchText collection in the cds_api_batch_srv service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchText",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_to_batchcharc_in_batch_for_cds_api_batch_srv",
+      "title": "list_to_BatchCharc_in_Batch_for_cds_api_batch_srv",
+      "description": "Navigate from Batch to related BatchCharcType entities via the 'to_BatchCharc' navigation property. Supports OData query options for filtering, sorting, paging, expanding, counting, and selecting specific properties. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "Batch",
+          "navigationProperty": {
+            "name": "to_BatchCharc",
+            "crudOperation": "read",
+            "parameters": [
+              {
+                "name": "filter"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "orderby"
+              },
+              {
+                "name": "top"
+              },
+              {
+                "name": "skip"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "inlinecount"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_to_batchcharc_in_batch_for_cds_api_batch_srv",
+      "title": "count_to_BatchCharc_in_Batch_for_cds_api_batch_srv",
+      "description": "Count BatchCharcType entities accessible via the 'to_BatchCharc' navigation property of Batch in the cds_api_batch_srv service. Returns the total number of matching entities.",
+      "odataType": {
+        "entitySet": {
+          "name": "Batch",
+          "navigationProperty": {
+            "name": "to_BatchCharc",
+            "crudOperation": "count",
+            "parameters": [
+              {
+                "name": "filter"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_to_batchclass_in_batch_for_cds_api_batch_srv",
+      "title": "get_to_BatchClass_in_Batch_for_cds_api_batch_srv",
+      "description": "Navigate from Batch to the related BatchClassType entity via the 'to_BatchClass' navigation property. Supports $select and $expand query options. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "Batch",
+          "navigationProperty": {
+            "name": "to_BatchClass",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_to_batchplant_in_batch_for_cds_api_batch_srv",
+      "title": "list_to_BatchPlant_in_Batch_for_cds_api_batch_srv",
+      "description": "Navigate from Batch to related BatchPlantType entities via the 'to_BatchPlant' navigation property. Supports OData query options for filtering, sorting, paging, expanding, counting, and selecting specific properties. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "Batch",
+          "navigationProperty": {
+            "name": "to_BatchPlant",
+            "crudOperation": "read",
+            "parameters": [
+              {
+                "name": "filter"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "orderby"
+              },
+              {
+                "name": "top"
+              },
+              {
+                "name": "skip"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "inlinecount"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_to_batchplant_in_batch_for_cds_api_batch_srv",
+      "title": "count_to_BatchPlant_in_Batch_for_cds_api_batch_srv",
+      "description": "Count BatchPlantType entities accessible via the 'to_BatchPlant' navigation property of Batch in the cds_api_batch_srv service. Returns the total number of matching entities.",
+      "odataType": {
+        "entitySet": {
+          "name": "Batch",
+          "navigationProperty": {
+            "name": "to_BatchPlant",
+            "crudOperation": "count",
+            "parameters": [
+              {
+                "name": "filter"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_to_batchtext_in_batch_for_cds_api_batch_srv",
+      "title": "list_to_BatchText_in_Batch_for_cds_api_batch_srv",
+      "description": "Navigate from Batch to related BatchText_Type entities via the 'to_BatchText' navigation property. Supports OData query options for filtering, sorting, paging, expanding, counting, and selecting specific properties. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "Batch",
+          "navigationProperty": {
+            "name": "to_BatchText",
+            "crudOperation": "read",
+            "parameters": [
+              {
+                "name": "filter"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "orderby"
+              },
+              {
+                "name": "top"
+              },
+              {
+                "name": "skip"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "inlinecount"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_to_batchtext_in_batch_for_cds_api_batch_srv",
+      "title": "count_to_BatchText_in_Batch_for_cds_api_batch_srv",
+      "description": "Count BatchText_Type entities accessible via the 'to_BatchText' navigation property of Batch in the cds_api_batch_srv service. Returns the total number of matching entities.",
+      "odataType": {
+        "entitySet": {
+          "name": "Batch",
+          "navigationProperty": {
+            "name": "to_BatchText",
+            "crudOperation": "count",
+            "parameters": [
+              {
+                "name": "filter"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_to_batch_in_batchcharc_for_cds_api_batch_srv",
+      "title": "get_to_Batch_in_BatchCharc_for_cds_api_batch_srv",
+      "description": "Navigate from BatchCharc to the related BatchType entity via the 'to_Batch' navigation property. Supports $select and $expand query options. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchCharc",
+          "navigationProperty": {
+            "name": "to_Batch",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "CharcInternalID",
+              "newParameterName": "charcinternalid"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "update_to_batch_in_batchcharc_for_cds_api_batch_srv",
+      "title": "update_to_Batch_in_BatchCharc_for_cds_api_batch_srv",
+      "description": "Update the BatchType entity navigated from BatchCharc via the 'to_Batch' navigation property (HTTP PATCH). Provide the parent key and the properties to update. If the structure is unknown, call get_metadata_cds_api_batch_srv tool first.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchCharc",
+          "navigationProperty": {
+            "name": "to_Batch",
+            "crudOperation": "update",
+            "parameters": [
+              {
+                "name": "BatchIsMarkedForDeletion",
+                "newParameterName": "batchismarkedfordeletion"
+              },
+              {
+                "name": "MatlBatchIsInRstrcdUseStock",
+                "newParameterName": "matlbatchisinrstrcdusestock"
+              },
+              {
+                "name": "Supplier",
+                "newParameterName": "supplier"
+              },
+              {
+                "name": "BatchBySupplier",
+                "newParameterName": "batchbysupplier"
+              },
+              {
+                "name": "CountryOfOrigin",
+                "newParameterName": "countryoforigin"
+              },
+              {
+                "name": "RegionOfOrigin",
+                "newParameterName": "regionoforigin"
+              },
+              {
+                "name": "MatlBatchAvailabilityDate",
+                "newParameterName": "matlbatchavailabilitydate"
+              },
+              {
+                "name": "ShelfLifeExpirationDate",
+                "newParameterName": "shelflifeexpirationdate"
+              },
+              {
+                "name": "ManufactureDate",
+                "newParameterName": "manufacturedate"
+              },
+              {
+                "name": "FreeDefinedDate1",
+                "newParameterName": "freedefineddate1"
+              },
+              {
+                "name": "FreeDefinedDate2",
+                "newParameterName": "freedefineddate2"
+              },
+              {
+                "name": "FreeDefinedDate3",
+                "newParameterName": "freedefineddate3"
+              },
+              {
+                "name": "FreeDefinedDate4",
+                "newParameterName": "freedefineddate4"
+              },
+              {
+                "name": "FreeDefinedDate5",
+                "newParameterName": "freedefineddate5"
+              },
+              {
+                "name": "FreeDefinedDate6",
+                "newParameterName": "freedefineddate6"
+              },
+              {
+                "name": "to_BatchCharc",
+                "newParameterName": "to_batchcharc"
+              },
+              {
+                "name": "to_BatchClass",
+                "newParameterName": "to_batchclass"
+              },
+              {
+                "name": "to_BatchPlant",
+                "newParameterName": "to_batchplant"
+              },
+              {
+                "name": "to_BatchText",
+                "newParameterName": "to_batchtext"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "CharcInternalID",
+              "newParameterName": "charcinternalid"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_to_batchcharcvalue_in_batchcharc_for_cds_api_batch_srv",
+      "title": "list_to_BatchCharcValue_in_BatchCharc_for_cds_api_batch_srv",
+      "description": "Navigate from BatchCharc to related BatchCharcValueType entities via the 'to_BatchCharcValue' navigation property. Supports OData query options for filtering, sorting, paging, expanding, counting, and selecting specific properties. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchCharc",
+          "navigationProperty": {
+            "name": "to_BatchCharcValue",
+            "crudOperation": "read",
+            "parameters": [
+              {
+                "name": "filter"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "orderby"
+              },
+              {
+                "name": "top"
+              },
+              {
+                "name": "skip"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "inlinecount"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "CharcInternalID",
+              "newParameterName": "charcinternalid"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "create_to_batchcharcvalue_in_batchcharc_for_cds_api_batch_srv",
+      "title": "create_to_BatchCharcValue_in_BatchCharc_for_cds_api_batch_srv",
+      "description": "Create a new BatchCharcValueType entity via the 'to_BatchCharcValue' navigation property of BatchCharc. Provide the parent key and the properties of the new entity. If the structure is unknown, call get_metadata_cds_api_batch_srv tool first.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchCharc",
+          "navigationProperty": {
+            "name": "to_BatchCharcValue",
+            "crudOperation": "create",
+            "parameters": [
+              {
+                "name": "Material",
+                "newParameterName": "material_2"
+              },
+              {
+                "name": "BatchIdentifyingPlant",
+                "newParameterName": "batchidentifyingplant_2"
+              },
+              {
+                "name": "Batch",
+                "newParameterName": "batch_2"
+              },
+              {
+                "name": "CharcInternalID",
+                "newParameterName": "charcinternalid_2"
+              },
+              {
+                "name": "CharcValueDependency",
+                "newParameterName": "charcvaluedependency"
+              },
+              {
+                "name": "CharcValue",
+                "newParameterName": "charcvalue"
+              },
+              {
+                "name": "CharcFromNumericValue",
+                "newParameterName": "charcfromnumericvalue"
+              },
+              {
+                "name": "CharcFromNumericValueUnit",
+                "newParameterName": "charcfromnumericvalueunit"
+              },
+              {
+                "name": "CharcToNumericValue",
+                "newParameterName": "charctonumericvalue"
+              },
+              {
+                "name": "CharcToNumericValueUnit",
+                "newParameterName": "charctonumericvalueunit"
+              },
+              {
+                "name": "CharcFromDecimalValue",
+                "newParameterName": "charcfromdecimalvalue"
+              },
+              {
+                "name": "CharcToDecimalValue",
+                "newParameterName": "charctodecimalvalue"
+              },
+              {
+                "name": "CharcFromAmount",
+                "newParameterName": "charcfromamount"
+              },
+              {
+                "name": "CharcToAmount",
+                "newParameterName": "charctoamount"
+              },
+              {
+                "name": "Currency",
+                "newParameterName": "currency"
+              },
+              {
+                "name": "CharcFromDate",
+                "newParameterName": "charcfromdate"
+              },
+              {
+                "name": "CharcToDate",
+                "newParameterName": "charctodate"
+              },
+              {
+                "name": "CharcFromTime",
+                "newParameterName": "charcfromtime"
+              },
+              {
+                "name": "CharcToTime",
+                "newParameterName": "charctotime"
+              },
+              {
+                "name": "to_BatchCharc",
+                "newParameterName": "to_batchcharc"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "CharcInternalID",
+              "newParameterName": "charcinternalid"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_to_batchcharcvalue_in_batchcharc_for_cds_api_batch_srv",
+      "title": "count_to_BatchCharcValue_in_BatchCharc_for_cds_api_batch_srv",
+      "description": "Count BatchCharcValueType entities accessible via the 'to_BatchCharcValue' navigation property of BatchCharc in the cds_api_batch_srv service. Returns the total number of matching entities.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchCharc",
+          "navigationProperty": {
+            "name": "to_BatchCharcValue",
+            "crudOperation": "count",
+            "parameters": [
+              {
+                "name": "filter"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "CharcInternalID",
+              "newParameterName": "charcinternalid"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_to_batchcharc_in_batchcharcvalue_for_cds_api_batch_srv",
+      "title": "get_to_BatchCharc_in_BatchCharcValue_for_cds_api_batch_srv",
+      "description": "Navigate from BatchCharcValue to the related BatchCharcType entity via the 'to_BatchCharc' navigation property. Supports $select and $expand query options. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchCharcValue",
+          "navigationProperty": {
+            "name": "to_BatchCharc",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "CharcInternalID",
+              "newParameterName": "charcinternalid"
+            },
+            {
+              "name": "CharcValuePositionNumber",
+              "newParameterName": "charcvaluepositionnumber"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_to_batch_in_batchclass_for_cds_api_batch_srv",
+      "title": "get_to_Batch_in_BatchClass_for_cds_api_batch_srv",
+      "description": "Navigate from BatchClass to the related BatchType entity via the 'to_Batch' navigation property. Supports $select and $expand query options. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchClass",
+          "navigationProperty": {
+            "name": "to_Batch",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "update_to_batch_in_batchclass_for_cds_api_batch_srv",
+      "title": "update_to_Batch_in_BatchClass_for_cds_api_batch_srv",
+      "description": "Update the BatchType entity navigated from BatchClass via the 'to_Batch' navigation property (HTTP PATCH). Provide the parent key and the properties to update. If the structure is unknown, call get_metadata_cds_api_batch_srv tool first.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchClass",
+          "navigationProperty": {
+            "name": "to_Batch",
+            "crudOperation": "update",
+            "parameters": [
+              {
+                "name": "BatchIsMarkedForDeletion",
+                "newParameterName": "batchismarkedfordeletion"
+              },
+              {
+                "name": "MatlBatchIsInRstrcdUseStock",
+                "newParameterName": "matlbatchisinrstrcdusestock"
+              },
+              {
+                "name": "Supplier",
+                "newParameterName": "supplier"
+              },
+              {
+                "name": "BatchBySupplier",
+                "newParameterName": "batchbysupplier"
+              },
+              {
+                "name": "CountryOfOrigin",
+                "newParameterName": "countryoforigin"
+              },
+              {
+                "name": "RegionOfOrigin",
+                "newParameterName": "regionoforigin"
+              },
+              {
+                "name": "MatlBatchAvailabilityDate",
+                "newParameterName": "matlbatchavailabilitydate"
+              },
+              {
+                "name": "ShelfLifeExpirationDate",
+                "newParameterName": "shelflifeexpirationdate"
+              },
+              {
+                "name": "ManufactureDate",
+                "newParameterName": "manufacturedate"
+              },
+              {
+                "name": "FreeDefinedDate1",
+                "newParameterName": "freedefineddate1"
+              },
+              {
+                "name": "FreeDefinedDate2",
+                "newParameterName": "freedefineddate2"
+              },
+              {
+                "name": "FreeDefinedDate3",
+                "newParameterName": "freedefineddate3"
+              },
+              {
+                "name": "FreeDefinedDate4",
+                "newParameterName": "freedefineddate4"
+              },
+              {
+                "name": "FreeDefinedDate5",
+                "newParameterName": "freedefineddate5"
+              },
+              {
+                "name": "FreeDefinedDate6",
+                "newParameterName": "freedefineddate6"
+              },
+              {
+                "name": "to_BatchCharc",
+                "newParameterName": "to_batchcharc"
+              },
+              {
+                "name": "to_BatchClass",
+                "newParameterName": "to_batchclass"
+              },
+              {
+                "name": "to_BatchPlant",
+                "newParameterName": "to_batchplant"
+              },
+              {
+                "name": "to_BatchText",
+                "newParameterName": "to_batchtext"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_to_batch_in_batchplant_for_cds_api_batch_srv",
+      "title": "get_to_Batch_in_BatchPlant_for_cds_api_batch_srv",
+      "description": "Navigate from BatchPlant to the related BatchType entity via the 'to_Batch' navigation property. Supports $select and $expand query options. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchPlant",
+          "navigationProperty": {
+            "name": "to_Batch",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "Plant",
+              "newParameterName": "plant"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "update_to_batch_in_batchplant_for_cds_api_batch_srv",
+      "title": "update_to_Batch_in_BatchPlant_for_cds_api_batch_srv",
+      "description": "Update the BatchType entity navigated from BatchPlant via the 'to_Batch' navigation property (HTTP PATCH). Provide the parent key and the properties to update. If the structure is unknown, call get_metadata_cds_api_batch_srv tool first.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchPlant",
+          "navigationProperty": {
+            "name": "to_Batch",
+            "crudOperation": "update",
+            "parameters": [
+              {
+                "name": "BatchIsMarkedForDeletion",
+                "newParameterName": "batchismarkedfordeletion"
+              },
+              {
+                "name": "MatlBatchIsInRstrcdUseStock",
+                "newParameterName": "matlbatchisinrstrcdusestock"
+              },
+              {
+                "name": "Supplier",
+                "newParameterName": "supplier"
+              },
+              {
+                "name": "BatchBySupplier",
+                "newParameterName": "batchbysupplier"
+              },
+              {
+                "name": "CountryOfOrigin",
+                "newParameterName": "countryoforigin"
+              },
+              {
+                "name": "RegionOfOrigin",
+                "newParameterName": "regionoforigin"
+              },
+              {
+                "name": "MatlBatchAvailabilityDate",
+                "newParameterName": "matlbatchavailabilitydate"
+              },
+              {
+                "name": "ShelfLifeExpirationDate",
+                "newParameterName": "shelflifeexpirationdate"
+              },
+              {
+                "name": "ManufactureDate",
+                "newParameterName": "manufacturedate"
+              },
+              {
+                "name": "FreeDefinedDate1",
+                "newParameterName": "freedefineddate1"
+              },
+              {
+                "name": "FreeDefinedDate2",
+                "newParameterName": "freedefineddate2"
+              },
+              {
+                "name": "FreeDefinedDate3",
+                "newParameterName": "freedefineddate3"
+              },
+              {
+                "name": "FreeDefinedDate4",
+                "newParameterName": "freedefineddate4"
+              },
+              {
+                "name": "FreeDefinedDate5",
+                "newParameterName": "freedefineddate5"
+              },
+              {
+                "name": "FreeDefinedDate6",
+                "newParameterName": "freedefineddate6"
+              },
+              {
+                "name": "to_BatchCharc",
+                "newParameterName": "to_batchcharc"
+              },
+              {
+                "name": "to_BatchClass",
+                "newParameterName": "to_batchclass"
+              },
+              {
+                "name": "to_BatchPlant",
+                "newParameterName": "to_batchplant"
+              },
+              {
+                "name": "to_BatchText",
+                "newParameterName": "to_batchtext"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "Plant",
+              "newParameterName": "plant"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_to_batch_in_batchtext_for_cds_api_batch_srv",
+      "title": "get_to_Batch_in_BatchText_for_cds_api_batch_srv",
+      "description": "Navigate from BatchText to the related BatchType entity via the 'to_Batch' navigation property. Supports $select and $expand query options. If the structure of the entity is not known, call get_metadata_cds_api_batch_srv tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchText",
+          "navigationProperty": {
+            "name": "to_Batch",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "Language",
+              "newParameterName": "language"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "update_to_batch_in_batchtext_for_cds_api_batch_srv",
+      "title": "update_to_Batch_in_BatchText_for_cds_api_batch_srv",
+      "description": "Update the BatchType entity navigated from BatchText via the 'to_Batch' navigation property (HTTP PATCH). Provide the parent key and the properties to update. If the structure is unknown, call get_metadata_cds_api_batch_srv tool first.",
+      "odataType": {
+        "entitySet": {
+          "name": "BatchText",
+          "navigationProperty": {
+            "name": "to_Batch",
+            "crudOperation": "update",
+            "parameters": [
+              {
+                "name": "BatchIsMarkedForDeletion",
+                "newParameterName": "batchismarkedfordeletion"
+              },
+              {
+                "name": "MatlBatchIsInRstrcdUseStock",
+                "newParameterName": "matlbatchisinrstrcdusestock"
+              },
+              {
+                "name": "Supplier",
+                "newParameterName": "supplier"
+              },
+              {
+                "name": "BatchBySupplier",
+                "newParameterName": "batchbysupplier"
+              },
+              {
+                "name": "CountryOfOrigin",
+                "newParameterName": "countryoforigin"
+              },
+              {
+                "name": "RegionOfOrigin",
+                "newParameterName": "regionoforigin"
+              },
+              {
+                "name": "MatlBatchAvailabilityDate",
+                "newParameterName": "matlbatchavailabilitydate"
+              },
+              {
+                "name": "ShelfLifeExpirationDate",
+                "newParameterName": "shelflifeexpirationdate"
+              },
+              {
+                "name": "ManufactureDate",
+                "newParameterName": "manufacturedate"
+              },
+              {
+                "name": "FreeDefinedDate1",
+                "newParameterName": "freedefineddate1"
+              },
+              {
+                "name": "FreeDefinedDate2",
+                "newParameterName": "freedefineddate2"
+              },
+              {
+                "name": "FreeDefinedDate3",
+                "newParameterName": "freedefineddate3"
+              },
+              {
+                "name": "FreeDefinedDate4",
+                "newParameterName": "freedefineddate4"
+              },
+              {
+                "name": "FreeDefinedDate5",
+                "newParameterName": "freedefineddate5"
+              },
+              {
+                "name": "FreeDefinedDate6",
+                "newParameterName": "freedefineddate6"
+              },
+              {
+                "name": "to_BatchCharc",
+                "newParameterName": "to_batchcharc"
+              },
+              {
+                "name": "to_BatchClass",
+                "newParameterName": "to_batchclass"
+              },
+              {
+                "name": "to_BatchPlant",
+                "newParameterName": "to_batchplant"
+              },
+              {
+                "name": "to_BatchText",
+                "newParameterName": "to_batchtext"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "Material",
+              "newParameterName": "material"
+            },
+            {
+              "name": "BatchIdentifyingPlant",
+              "newParameterName": "batchidentifyingplant"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "Language",
+              "newParameterName": "language"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,442 @@
+{
+  "mcpTranslationVersion": "0.1",
+  "target": {
+    "ordId": "sap.ibp:apiResource:ForecastDataExtraction:v1",
+    "type": "edmx"
+  },
+  "serverInfo": {
+    "name": "sap.mcp/sap_self",
+    "title": "sap_self",
+    "version": "1.0.0",
+    "description": "MCP server for the sap_self service."
+  },
+  "tools": [
+    {
+      "name": "get_metadata_sap_self",
+      "title": "get_metadata_sap_self",
+      "description": "Get metadata of the OData service with optional filtering to reduce token consumption.\nReturns the metadata in XML format, which can be used to discover available entities and their properties.\nCall this endpoint every time before you call other tools to ensure understanding of the schema.\nBased on the metadata, you can dynamically create an OData request.\n\nUse filtering parameters to get specific metadata sections. Without parameters, this tool returns the complete XML metadata (which might be huge).\nOnly use the specified enum values for the filtering parameters.\n",
+      "odataType": {
+        "metadataRequest": {}
+      }
+    },
+    {
+      "name": "batch_for_sap_self",
+      "title": "batch_for_sap_self",
+      "description": "Execute multiple OData operations in a single batch request using the $batch endpoint. This allows you to combine multiple tool calls into one HTTP request, improving efficiency when performing multiple operations.",
+      "odataType": {
+        "batchRequest": {}
+      }
+    },
+    {
+      "name": "list_ibpforecast_for_sap_self",
+      "title": "list_IBPForecast_for_sap_self",
+      "description": "Retrieve a list of entities from the IBPForecast collection in the sap_self service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "IBPForecast",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "count"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_ibpforecast_for_sap_self",
+      "title": "get_IBPForecast_for_sap_self",
+      "description": "Retrieve a single entity by its key from the IBPForecast collection in the sap_self service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "IBPForecast",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "SimulationVersionID",
+              "newParameterName": "simulationversionid"
+            },
+            {
+              "name": "IBPFcstDocID",
+              "newParameterName": "ibpfcstdocid"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_ibpforecast_for_sap_self",
+      "title": "count_IBPForecast_for_sap_self",
+      "description": "Get the total count of entities in the IBPForecast collection in the sap_self service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "IBPForecast",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_ibpforecastcbplgattrib_for_sap_self",
+      "title": "list_IBPForecastCBPlgAttrib_for_sap_self",
+      "description": "Retrieve a list of entities from the IBPForecastCBPlgAttrib collection in the sap_self service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "IBPForecastCBPlgAttrib",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "count"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_ibpforecastcbplgattrib_for_sap_self",
+      "title": "get_IBPForecastCBPlgAttrib_for_sap_self",
+      "description": "Retrieve a single entity by its key from the IBPForecastCBPlgAttrib collection in the sap_self service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "IBPForecastCBPlgAttrib",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "SimulationVersionID",
+              "newParameterName": "simulationversionid"
+            },
+            {
+              "name": "IBPFcstDocID",
+              "newParameterName": "ibpfcstdocid"
+            },
+            {
+              "name": "IBPFcstDocCBPlgAttribID",
+              "newParameterName": "ibpfcstdoccbplgattribid"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_ibpforecastcbplgattrib_for_sap_self",
+      "title": "count_IBPForecastCBPlgAttrib_for_sap_self",
+      "description": "Get the total count of entities in the IBPForecastCBPlgAttrib collection in the sap_self service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "IBPForecastCBPlgAttrib",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_ibpforecastfldctlg_for_sap_self",
+      "title": "list_IBPForecastFldCtlg_for_sap_self",
+      "description": "Retrieve a list of entities from the IBPForecastFldCtlg collection in the sap_self service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "IBPForecastFldCtlg",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "count"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_ibpforecastfldctlg_for_sap_self",
+      "title": "get_IBPForecastFldCtlg_for_sap_self",
+      "description": "Retrieve a single entity by its key from the IBPForecastFldCtlg collection in the sap_self service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "IBPForecastFldCtlg",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "SimulationVersionID",
+              "newParameterName": "simulationversionid"
+            },
+            {
+              "name": "IBPFcstDocID",
+              "newParameterName": "ibpfcstdocid"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_ibpforecastfldctlg_for_sap_self",
+      "title": "count_IBPForecastFldCtlg_for_sap_self",
+      "description": "Get the total count of entities in the IBPForecastFldCtlg collection in the sap_self service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "IBPForecastFldCtlg",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list__fcstcbplgattrib_in_ibpforecast_for_sap_self",
+      "title": "list__FcstCBPlgAttrib_in_IBPForecast_for_sap_self",
+      "description": "Navigate from IBPForecast to related IBPForecastCBPlgAttribType entities via the '_FcstCBPlgAttrib' navigation property. Supports OData query options for filtering, sorting, paging, expanding, counting, and selecting specific properties. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "IBPForecast",
+          "navigationProperty": {
+            "name": "_FcstCBPlgAttrib",
+            "crudOperation": "read",
+            "parameters": [
+              {
+                "name": "filter"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "orderby"
+              },
+              {
+                "name": "top"
+              },
+              {
+                "name": "skip"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "count"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "SimulationVersionID",
+              "newParameterName": "simulationversionid"
+            },
+            {
+              "name": "IBPFcstDocID",
+              "newParameterName": "ibpfcstdocid"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count__fcstcbplgattrib_in_ibpforecast_for_sap_self",
+      "title": "count__FcstCBPlgAttrib_in_IBPForecast_for_sap_self",
+      "description": "Count IBPForecastCBPlgAttribType entities accessible via the '_FcstCBPlgAttrib' navigation property of IBPForecast in the sap_self service. Returns the total number of matching entities.",
+      "odataType": {
+        "entitySet": {
+          "name": "IBPForecast",
+          "navigationProperty": {
+            "name": "_FcstCBPlgAttrib",
+            "crudOperation": "count",
+            "parameters": [
+              {
+                "name": "filter"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "SimulationVersionID",
+              "newParameterName": "simulationversionid"
+            },
+            {
+              "name": "IBPFcstDocID",
+              "newParameterName": "ibpfcstdocid"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get__fcstfldctlg_in_ibpforecast_for_sap_self",
+      "title": "get__FcstFldCtlg_in_IBPForecast_for_sap_self",
+      "description": "Navigate from IBPForecast to the related IBPForecastFldCtlgType entity via the '_FcstFldCtlg' navigation property. Supports $select and $expand query options. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "IBPForecast",
+          "navigationProperty": {
+            "name": "_FcstFldCtlg",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "SimulationVersionID",
+              "newParameterName": "simulationversionid"
+            },
+            {
+              "name": "IBPFcstDocID",
+              "newParameterName": "ibpfcstdocid"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get__fcstdoc_in_ibpforecastcbplgattrib_for_sap_self",
+      "title": "get__FcstDoc_in_IBPForecastCBPlgAttrib_for_sap_self",
+      "description": "Navigate from IBPForecastCBPlgAttrib to the related IBPForecastType entity via the '_FcstDoc' navigation property. Supports $select and $expand query options. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "IBPForecastCBPlgAttrib",
+          "navigationProperty": {
+            "name": "_FcstDoc",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "SimulationVersionID",
+              "newParameterName": "simulationversionid"
+            },
+            {
+              "name": "IBPFcstDocID",
+              "newParameterName": "ibpfcstdocid"
+            },
+            {
+              "name": "IBPFcstDocCBPlgAttribID",
+              "newParameterName": "ibpfcstdoccbplgattribid"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get__fcstdoc_in_ibpforecastfldctlg_for_sap_self",
+      "title": "get__FcstDoc_in_IBPForecastFldCtlg_for_sap_self",
+      "description": "Navigate from IBPForecastFldCtlg to the related IBPForecastType entity via the '_FcstDoc' navigation property. Supports $select and $expand query options. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "IBPForecastFldCtlg",
+          "navigationProperty": {
+            "name": "_FcstDoc",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "SimulationVersionID",
+              "newParameterName": "simulationversionid"
+            },
+            {
+              "name": "IBPFcstDocID",
+              "newParameterName": "ibpfcstdocid"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

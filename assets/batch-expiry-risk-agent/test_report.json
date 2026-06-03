@@ -1,0 +1,394 @@
+{
+  "summary": {
+    "total": 70,
+    "passed": 70,
+    "failed": 0,
+    "score": 100.0
+  },
+  "sections": [
+    {
+      "name": "Structure Tests",
+      "marker": "structure",
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "score": 100.0,
+      "tests": [
+        {
+          "name": "test_agent_directory_exists",
+          "outcome": "passed",
+          "duration": 0.0003
+        },
+        {
+          "name": "test_app_directory_exists",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_requirements_txt_exists",
+          "outcome": "passed",
+          "duration": 0.0002
+        }
+      ]
+    },
+    {
+      "name": "Server Tests",
+      "marker": "server",
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "score": 100.0,
+      "tests": [
+        {
+          "name": "test_server_starts",
+          "outcome": "passed",
+          "duration": 0.0004
+        },
+        {
+          "name": "test_agent_card_endpoint",
+          "outcome": "passed",
+          "duration": 0.0288
+        }
+      ]
+    },
+    {
+      "name": "Agent Tests",
+      "marker": "agent_tests",
+      "total": 65,
+      "passed": 65,
+      "failed": 0,
+      "skipped": 0,
+      "score": 100.0,
+      "tests": [
+        {
+          "name": "test_markdown_tier_30_days",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_markdown_tier_14_days",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_markdown_tier_7_days",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_markdown_tier_1_day",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_check_markdown_eligible",
+          "outcome": "passed",
+          "duration": 0.0003
+        },
+        {
+          "name": "test_check_markdown_not_eligible_too_far",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_check_markdown_not_eligible_min_qty",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_match_actions_hazmat_excluded",
+          "outcome": "passed",
+          "duration": 0.0009
+        },
+        {
+          "name": "test_match_actions_rtv_not_eligible_too_soon",
+          "outcome": "passed",
+          "duration": 0.0004
+        },
+        {
+          "name": "test_match_actions_disposal_last_resort_no_tools",
+          "outcome": "passed",
+          "duration": 0.0004
+        },
+        {
+          "name": "test_match_actions_priority_order",
+          "outcome": "passed",
+          "duration": 0.0004
+        },
+        {
+          "name": "test_match_actions_rtv_eligible_with_agreement",
+          "outcome": "passed",
+          "duration": 0.0014
+        },
+        {
+          "name": "test_redistribution_temperature_incompatible_skipped",
+          "outcome": "passed",
+          "duration": 0.0009
+        },
+        {
+          "name": "test_rtv_escalation_no_agreement_high_value",
+          "outcome": "passed",
+          "duration": 0.0009
+        },
+        {
+          "name": "test_run_agent_produces_report",
+          "outcome": "passed",
+          "duration": 5.6836
+        },
+        {
+          "name": "test_run_agent_handles_no_batches",
+          "outcome": "passed",
+          "duration": 0.0013
+        },
+        {
+          "name": "test_run_agent_handles_scan_failure",
+          "outcome": "passed",
+          "duration": 0.002
+        },
+        {
+          "name": "test_invoke_returns_completed_status",
+          "outcome": "passed",
+          "duration": 0.0027
+        },
+        {
+          "name": "test_run_agent_plant_filter_parsed",
+          "outcome": "passed",
+          "duration": 0.0003
+        },
+        {
+          "name": "test_format_money",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_format_qty",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_report_header_contains_run_id",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_report_header_plants",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_report_no_at_risk_batches",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_report_contains_batch_details",
+          "outcome": "passed",
+          "duration": 0.0003
+        },
+        {
+          "name": "test_report_currency_in_exposure",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_report_ibp_stale_flag",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_report_confidence_downgraded_when_stale",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_report_sorted_by_score_descending",
+          "outcome": "passed",
+          "duration": 0.0003
+        },
+        {
+          "name": "test_report_exceptions_section",
+          "outcome": "passed",
+          "duration": 0.0003
+        },
+        {
+          "name": "test_report_draft_artefact_marked_draft",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_report_summary_table_present",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_report_no_exceptions_section",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_net_risk_qty_basic",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_risk_qty_never_negative",
+          "outcome": "passed",
+          "duration": 0.0011
+        },
+        {
+          "name": "test_ibp_data_stale_detection",
+          "outcome": "passed",
+          "duration": 0.0009
+        },
+        {
+          "name": "test_no_forecast_tool",
+          "outcome": "passed",
+          "duration": 0.0004
+        },
+        {
+          "name": "test_projected_consumption_uses_days_to_expiry",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_normalise_basic",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_normalise_zero_max",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_normalise_capped_at_one",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_score_bounds",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_score_high_urgency_higher_than_low",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_score_c_bin_higher_than_a_bin",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_confidence_stale_ibp_gives_low",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_confidence_no_demand_gives_medium",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_confidence_normal_gives_high",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_score_all_suppresses_below_threshold",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_score_all_sorted_descending",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_score_all_empty_input",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_parse_date_iso",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_parse_date_yyyymmdd",
+          "outcome": "passed",
+          "duration": 0.0006
+        },
+        {
+          "name": "test_parse_date_none",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_parse_date_date_object",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_extract_batch_records_within_horizon",
+          "outcome": "passed",
+          "duration": 0.0003
+        },
+        {
+          "name": "test_extract_batch_records_outside_horizon",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_extract_batch_records_missing_sled",
+          "outcome": "passed",
+          "duration": 0.0003
+        },
+        {
+          "name": "test_extract_batch_records_order_coverage_deduction",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_extract_batch_records_residual_above_threshold",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_extract_batch_records_large_residual",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_extract_batch_records_odata_d_format",
+          "outcome": "passed",
+          "duration": 0.0003
+        },
+        {
+          "name": "test_fetch_open_orders_no_tool",
+          "outcome": "passed",
+          "duration": 0.0004
+        },
+        {
+          "name": "test_fetch_open_orders_with_tool",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_scan_at_risk_batches_no_tools",
+          "outcome": "passed",
+          "duration": 0.0006
+        },
+        {
+          "name": "test_scan_at_risk_batches_with_tools",
+          "outcome": "passed",
+          "duration": 0.0014
+        }
+      ],
+      "coverage": 72.09
+    }
+  ]
+}

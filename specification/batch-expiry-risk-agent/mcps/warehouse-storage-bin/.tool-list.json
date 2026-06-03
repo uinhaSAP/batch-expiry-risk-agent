@@ -1,0 +1,15 @@
+[
+  "get_metadata_sap_self",
+  "batch_for_sap_self",
+  "list_warehousestoragebin_for_sap_self",
+  "create_warehousestoragebin_for_sap_self",
+  "update_warehousestoragebin_for_sap_self",
+  "get_warehousestoragebin_for_sap_self",
+  "count_warehousestoragebin_for_sap_self",
+  "action_unblockstockremoval_on_sap_self_warehousestoragebintype",
+  "action_unblockputaway_on_sap_self_warehousestoragebintype",
+  "action_blockstockremoval_on_sap_self_warehousestoragebintype",
+  "action_blockputawayandstockremoval_on_sap_self_warehousestoragebintype",
+  "action_unblockputawayandstockremoval_on_sap_self_warehousestoragebintype",
+  "action_blockputaway_on_sap_self_warehousestoragebintype"
+]

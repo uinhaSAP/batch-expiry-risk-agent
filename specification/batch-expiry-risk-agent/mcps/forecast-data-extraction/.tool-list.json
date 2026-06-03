@@ -1,0 +1,18 @@
+[
+  "get_metadata_sap_self",
+  "batch_for_sap_self",
+  "list_ibpforecast_for_sap_self",
+  "get_ibpforecast_for_sap_self",
+  "count_ibpforecast_for_sap_self",
+  "list_ibpforecastcbplgattrib_for_sap_self",
+  "get_ibpforecastcbplgattrib_for_sap_self",
+  "count_ibpforecastcbplgattrib_for_sap_self",
+  "list_ibpforecastfldctlg_for_sap_self",
+  "get_ibpforecastfldctlg_for_sap_self",
+  "count_ibpforecastfldctlg_for_sap_self",
+  "list__fcstcbplgattrib_in_ibpforecast_for_sap_self",
+  "count__fcstcbplgattrib_in_ibpforecast_for_sap_self",
+  "get__fcstfldctlg_in_ibpforecast_for_sap_self",
+  "get__fcstdoc_in_ibpforecastcbplgattrib_for_sap_self",
+  "get__fcstdoc_in_ibpforecastfldctlg_for_sap_self"
+]

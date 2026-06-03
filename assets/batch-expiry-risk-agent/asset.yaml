@@ -1,0 +1,39 @@
+apiVersion: asset.sap/v1
+kind: Asset
+
+metadata:
+  name: batch-expiry-risk-agent
+  version: 1.0.0
+  description: >
+    Proactive batch expiry risk management AI agent. Reads SAP EWM batch master,
+    shelf life, available stock, bin configuration, and open warehouse order data
+    together with SAP IBP consensus demand forecasts. Scores each at-risk batch
+    by financial exposure and expiry urgency, then recommends prioritised actions
+    (bin redistribution, channel reallocation, markdown, return-to-vendor, or
+    disposal). Outputs a structured operational report. Read-only against all
+    SAP systems — never creates, posts, or confirms any SAP document.
+
+type: agent
+
+container:
+  buildPath: .
+  port: 5000
+
+probes:
+  startup:
+    path: /.well-known/agent.json
+    periodSeconds: 5
+    timeoutSeconds: 3
+    failureThreshold: 18
+  liveness:
+    path: /.well-known/agent.json
+    initialDelaySeconds: 15
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+  readiness:
+    path: /.well-known/agent.json
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    timeoutSeconds: 3
+    failureThreshold: 3

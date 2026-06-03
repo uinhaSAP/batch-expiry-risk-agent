@@ -1,0 +1,575 @@
+{
+  "mcpTranslationVersion": "0.1",
+  "target": {
+    "ordId": "sap.s4:apiResource:CE_RETURNSINSPECTION_0001:v1",
+    "type": "edmx"
+  },
+  "serverInfo": {
+    "name": "sap.mcp/sap_self",
+    "title": "sap_self",
+    "version": "1.0.0",
+    "description": "MCP server for the sap_self service."
+  },
+  "tools": [
+    {
+      "name": "get_metadata_sap_self",
+      "title": "get_metadata_sap_self",
+      "description": "Get metadata of the OData service with optional filtering to reduce token consumption.\nReturns the metadata in XML format, which can be used to discover available entities and their properties.\nCall this endpoint every time before you call other tools to ensure understanding of the schema.\nBased on the metadata, you can dynamically create an OData request.\n\nUse filtering parameters to get specific metadata sections. Without parameters, this tool returns the complete XML metadata (which might be huge).\nOnly use the specified enum values for the filtering parameters.\n",
+      "odataType": {
+        "metadataRequest": {}
+      }
+    },
+    {
+      "name": "batch_for_sap_self",
+      "title": "batch_for_sap_self",
+      "description": "Execute multiple OData operations in a single batch request using the $batch endpoint. This allows you to combine multiple tool calls into one HTTP request, improving efficiency when performing multiple operations.",
+      "odataType": {
+        "batchRequest": {}
+      }
+    },
+    {
+      "name": "list_returnsinspection_for_sap_self",
+      "title": "list_ReturnsInspection_for_sap_self",
+      "description": "Retrieve a list of entities from the ReturnsInspection collection in the sap_self service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspection",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "count"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "create_returnsinspection_for_sap_self",
+      "title": "create_ReturnsInspection_for_sap_self",
+      "description": "Create a new instance of the ReturnsInspection EntitySet in the sap_self service. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspection",
+          "crudOperation": "create",
+          "parameters": [
+            {
+              "name": "ReturnsDelivery",
+              "newParameterName": "returnsdelivery"
+            },
+            {
+              "name": "RetsInspectionIsToBeConfirmed",
+              "newParameterName": "retsinspectionistobeconfirmed"
+            },
+            {
+              "name": "SAP__Messages",
+              "newParameterName": "sap_messages"
+            },
+            {
+              "name": "_Item",
+              "newParameterName": "item"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "delete_returnsinspection_for_sap_self",
+      "title": "delete_ReturnsInspection_for_sap_self",
+      "description": "Delete an entity from ReturnsInspection EntitySet in the sap_self service.",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspection",
+          "crudOperation": "delete",
+          "parameters": [
+            {
+              "name": "ReturnsInspection",
+              "newParameterName": "returnsinspection"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_returnsinspection_for_sap_self",
+      "title": "get_ReturnsInspection_for_sap_self",
+      "description": "Retrieve a single entity by its key from the ReturnsInspection collection in the sap_self service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspection",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "ReturnsInspection",
+              "newParameterName": "returnsinspection"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_returnsinspection_for_sap_self",
+      "title": "count_ReturnsInspection_for_sap_self",
+      "description": "Get the total count of entities in the ReturnsInspection collection in the sap_self service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspection",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_returnsinspectionitem_for_sap_self",
+      "title": "list_ReturnsInspectionItem_for_sap_self",
+      "description": "Retrieve a list of entities from the ReturnsInspectionItem collection in the sap_self service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspectionItem",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "count"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "update_returnsinspectionitem_for_sap_self",
+      "title": "update_ReturnsInspectionItem_for_sap_self",
+      "description": "Update an entity in ReturnsInspectionItem EntitySet in the sap_self service. Provide the key properties to identify the entity and the properties to update in the request body. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspectionItem",
+          "crudOperation": "update",
+          "parameters": [
+            {
+              "name": "ReturnsInspection",
+              "newParameterName": "returnsinspection"
+            },
+            {
+              "name": "ReturnsInspectionItem",
+              "newParameterName": "returnsinspectionitem"
+            },
+            {
+              "name": "ReturnsDeliveryItem",
+              "newParameterName": "returnsdeliveryitem"
+            },
+            {
+              "name": "InspectionCode",
+              "newParameterName": "inspectioncode"
+            },
+            {
+              "name": "ReturnsInspectionComment",
+              "newParameterName": "returnsinspectioncomment"
+            },
+            {
+              "name": "InspectionDate",
+              "newParameterName": "inspectiondate"
+            },
+            {
+              "name": "ProductInspectorName",
+              "newParameterName": "productinspectorname"
+            },
+            {
+              "name": "ReturnsFollowUpActivity",
+              "newParameterName": "returnsfollowupactivity"
+            },
+            {
+              "name": "InspectedProductQuantity",
+              "newParameterName": "inspectedproductquantity"
+            },
+            {
+              "name": "InspectedProductUnit",
+              "newParameterName": "inspectedproductunit"
+            },
+            {
+              "name": "TargetPlant",
+              "newParameterName": "targetplant"
+            },
+            {
+              "name": "TargetStorageLocation",
+              "newParameterName": "targetstoragelocation"
+            },
+            {
+              "name": "TargetStockType",
+              "newParameterName": "targetstocktype"
+            },
+            {
+              "name": "TgtProdForGdsMvtPostg",
+              "newParameterName": "tgtprodforgdsmvtpostg"
+            },
+            {
+              "name": "Supplier",
+              "newParameterName": "supplier"
+            },
+            {
+              "name": "SAP__Messages",
+              "newParameterName": "sap_messages"
+            },
+            {
+              "name": "_ReturnsInspection",
+              "newParameterName": "returnsinspection_2"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_returnsinspectionitem_for_sap_self",
+      "title": "get_ReturnsInspectionItem_for_sap_self",
+      "description": "Retrieve a single entity by its key from the ReturnsInspectionItem collection in the sap_self service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspectionItem",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "ReturnsInspection",
+              "newParameterName": "returnsinspection"
+            },
+            {
+              "name": "ReturnsInspectionItem",
+              "newParameterName": "returnsinspectionitem"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_returnsinspectionitem_for_sap_self",
+      "title": "count_ReturnsInspectionItem_for_sap_self",
+      "description": "Get the total count of entities in the ReturnsInspectionItem collection in the sap_self service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspectionItem",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list__item_in_returnsinspection_for_sap_self",
+      "title": "list__Item_in_ReturnsInspection_for_sap_self",
+      "description": "Navigate from ReturnsInspection to related ReturnsInspectionItem_Type entities via the '_Item' navigation property. Supports OData query options for filtering, sorting, paging, expanding, counting, and selecting specific properties. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspection",
+          "navigationProperty": {
+            "name": "_Item",
+            "crudOperation": "read",
+            "parameters": [
+              {
+                "name": "filter"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "orderby"
+              },
+              {
+                "name": "top"
+              },
+              {
+                "name": "skip"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "count"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "ReturnsInspection",
+              "newParameterName": "returnsinspection"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "create__item_in_returnsinspection_for_sap_self",
+      "title": "create__Item_in_ReturnsInspection_for_sap_self",
+      "description": "Create a new ReturnsInspectionItem_Type entity via the '_Item' navigation property of ReturnsInspection. Provide the parent key and the properties of the new entity. If the structure is unknown, call get_metadata_sap_self tool first.",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspection",
+          "navigationProperty": {
+            "name": "_Item",
+            "crudOperation": "create",
+            "parameters": [
+              {
+                "name": "ReturnsDeliveryItem",
+                "newParameterName": "returnsdeliveryitem"
+              },
+              {
+                "name": "InspectionCode",
+                "newParameterName": "inspectioncode"
+              },
+              {
+                "name": "ReturnsInspectionComment",
+                "newParameterName": "returnsinspectioncomment"
+              },
+              {
+                "name": "InspectionDate",
+                "newParameterName": "inspectiondate"
+              },
+              {
+                "name": "ProductInspectorName",
+                "newParameterName": "productinspectorname"
+              },
+              {
+                "name": "ReturnsFollowUpActivity",
+                "newParameterName": "returnsfollowupactivity"
+              },
+              {
+                "name": "InspectedProductQuantity",
+                "newParameterName": "inspectedproductquantity"
+              },
+              {
+                "name": "InspectedProductUnit",
+                "newParameterName": "inspectedproductunit"
+              },
+              {
+                "name": "TargetPlant",
+                "newParameterName": "targetplant"
+              },
+              {
+                "name": "TargetStorageLocation",
+                "newParameterName": "targetstoragelocation"
+              },
+              {
+                "name": "TargetStockType",
+                "newParameterName": "targetstocktype"
+              },
+              {
+                "name": "TgtProdForGdsMvtPostg",
+                "newParameterName": "tgtprodforgdsmvtpostg"
+              },
+              {
+                "name": "Supplier",
+                "newParameterName": "supplier"
+              },
+              {
+                "name": "SAP__Messages",
+                "newParameterName": "sap_messages"
+              },
+              {
+                "name": "_ReturnsInspection",
+                "newParameterName": "returnsinspection_2"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "ReturnsInspection",
+              "newParameterName": "returnsinspection"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count__item_in_returnsinspection_for_sap_self",
+      "title": "count__Item_in_ReturnsInspection_for_sap_self",
+      "description": "Count ReturnsInspectionItem_Type entities accessible via the '_Item' navigation property of ReturnsInspection in the sap_self service. Returns the total number of matching entities.",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspection",
+          "navigationProperty": {
+            "name": "_Item",
+            "crudOperation": "count",
+            "parameters": [
+              {
+                "name": "filter"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "ReturnsInspection",
+              "newParameterName": "returnsinspection"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get__returnsinspection_in_returnsinspectionitem_for_sap_self",
+      "title": "get__ReturnsInspection_in_ReturnsInspectionItem_for_sap_self",
+      "description": "Navigate from ReturnsInspectionItem to the related ReturnsInspection_Type entity via the '_ReturnsInspection' navigation property. Supports $select and $expand query options. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspectionItem",
+          "navigationProperty": {
+            "name": "_ReturnsInspection",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "ReturnsInspection",
+              "newParameterName": "returnsinspection"
+            },
+            {
+              "name": "ReturnsInspectionItem",
+              "newParameterName": "returnsinspectionitem"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_confirmretsinspbydelivery_on_sap_self_returnsinspection_type",
+      "title": "action_ConfirmRetsInspByDelivery_on_sap_self_returnsinspection_type",
+      "description": "OData bound action: ConfirmRetsInspByDelivery on entity SAP__self.ReturnsInspection_Type in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspection",
+          "operation": {
+            "name": "ConfirmRetsInspByDelivery",
+            "type": "action",
+            "parameters": [
+              {
+                "name": "ReturnsDelivery",
+                "newParameterName": "returnsdelivery"
+              },
+              {
+                "name": "_Item",
+                "newParameterName": "item"
+              }
+            ]
+          },
+          "parameters": []
+        }
+      }
+    },
+    {
+      "name": "action_deleteretsinspbydelivery_on_sap_self_returnsinspection_type",
+      "title": "action_DeleteRetsInspByDelivery_on_sap_self_returnsinspection_type",
+      "description": "OData bound action: DeleteRetsInspByDelivery on entity SAP__self.ReturnsInspection_Type in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspection",
+          "operation": {
+            "name": "DeleteRetsInspByDelivery",
+            "type": "action",
+            "parameters": [
+              {
+                "name": "ReturnsDelivery",
+                "newParameterName": "returnsdelivery"
+              },
+              {
+                "name": "_Item",
+                "newParameterName": "item"
+              }
+            ]
+          },
+          "parameters": []
+        }
+      }
+    },
+    {
+      "name": "action_updateretsinspbydelivery_on_sap_self_returnsinspection_type",
+      "title": "action_UpdateRetsInspByDelivery_on_sap_self_returnsinspection_type",
+      "description": "OData bound action: UpdateRetsInspByDelivery on entity SAP__self.ReturnsInspection_Type in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "ReturnsInspection",
+          "operation": {
+            "name": "UpdateRetsInspByDelivery",
+            "type": "action",
+            "parameters": [
+              {
+                "name": "ReturnsDelivery",
+                "newParameterName": "returnsdelivery"
+              },
+              {
+                "name": "RetsInspectionIsToBeConfirmed",
+                "newParameterName": "retsinspectionistobeconfirmed"
+              },
+              {
+                "name": "_Item",
+                "newParameterName": "item"
+              }
+            ]
+          },
+          "parameters": []
+        }
+      }
+    }
+  ]
+}

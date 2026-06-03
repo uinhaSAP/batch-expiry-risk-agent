@@ -1,0 +1,837 @@
+{
+  "servers": {
+    "cds-api-batch-srv": {
+      "mcp_server_name": "sap.mcp/cds_api_batch_srv",
+      "description": "MCP server for SAP Batch Master Record (OP_API_BATCH_SRV_0001)",
+      "tools": {
+        "get_metadata_cds_api_batch_srv": {
+          "description": "Get metadata of the OData service.",
+          "input_schema": {"type": "object", "properties": {}, "required": []},
+          "mock_response": "<edmx:Edmx Version=\"1.0\" xmlns:edmx=\"http://schemas.microsoft.com/ado/2007/06/edmx\"><edmx:DataServices><Schema Namespace=\"cds_api_batch_srv\" xmlns=\"http://schemas.microsoft.com/ado/2008/09/edm\"></Schema></edmx:DataServices></edmx:Edmx>"
+        },
+        "batch_for_cds_api_batch_srv": {
+          "description": "Execute batch request.",
+          "input_schema": {"type": "object", "properties": {}, "required": []},
+          "mock_response": {}
+        },
+        "list_batch_for_cds_api_batch_srv": {
+          "description": "Retrieve a list of Batch entities.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "filter": {"type": "string", "description": "OData $filter expression"},
+              "select": {"type": "string", "description": "Fields to select"},
+              "orderby": {"type": "string", "description": "Sort order"},
+              "top": {"type": "string", "description": "Max records"},
+              "skip": {"type": "string", "description": "Skip records"}
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": [
+              {
+                "Material": "MAT-PHARMA-001",
+                "BatchIdentifyingPlant": "1000",
+                "Batch": "BATCH-001",
+                "Plant": "1000",
+                "StorageLocation": "WH01",
+                "StorageBin": "BIN-C5",
+                "MaterialDescription": "Pharmaceutical Product A",
+                "BatchIsMarkedForDeletion": false,
+                "MatlBatchIsInRstrcdUseStock": false,
+                "Supplier": "VENDOR-1001",
+                "BatchBySupplier": "SUP-BATCH-A",
+                "CountryOfOrigin": "US",
+                "MatlBatchAvailabilityDate": "/Date(1781308800000)/",
+                "ShelfLifeExpirationDate": "/Date(1781308800000)/",
+                "ManufactureDate": "/Date(1769472000000)/",
+                "GoodsMovementQuantity": "500.000",
+                "MovingAveragePrice": "25.00",
+                "BaseUnit": "EA",
+                "VelocityClass": "A",
+                "TemperatureCondition": "AMBIENT",
+                "HazardousSubstanceFlag": false
+              },
+              {
+                "Material": "MAT-FOOD-002",
+                "BatchIdentifyingPlant": "1000",
+                "Batch": "BATCH-002",
+                "Plant": "1000",
+                "StorageLocation": "WH01",
+                "StorageBin": "BIN-B3",
+                "MaterialDescription": "Food Product B",
+                "BatchIsMarkedForDeletion": false,
+                "MatlBatchIsInRstrcdUseStock": false,
+                "Supplier": "VENDOR-1002",
+                "BatchBySupplier": "SUP-BATCH-B",
+                "CountryOfOrigin": "DE",
+                "MatlBatchAvailabilityDate": "/Date(1782172800000)/",
+                "ShelfLifeExpirationDate": "/Date(1782172800000)/",
+                "ManufactureDate": "/Date(1769472000000)/",
+                "GoodsMovementQuantity": "300.000",
+                "MovingAveragePrice": "15.00",
+                "BaseUnit": "EA",
+                "VelocityClass": "B",
+                "TemperatureCondition": "AMBIENT",
+                "HazardousSubstanceFlag": false
+              },
+              {
+                "Material": "MAT-COSM-003",
+                "BatchIdentifyingPlant": "1000",
+                "Batch": "BATCH-003",
+                "Plant": "1000",
+                "StorageLocation": "WH01",
+                "StorageBin": "BIN-A1",
+                "MaterialDescription": "Cosmetic Product C",
+                "BatchIsMarkedForDeletion": false,
+                "MatlBatchIsInRstrcdUseStock": false,
+                "Supplier": "VENDOR-1003",
+                "BatchBySupplier": "SUP-BATCH-C",
+                "CountryOfOrigin": "US",
+                "MatlBatchAvailabilityDate": "/Date(1784764800000)/",
+                "ShelfLifeExpirationDate": "/Date(1784764800000)/",
+                "ManufactureDate": "/Date(1769472000000)/",
+                "GoodsMovementQuantity": "150.000",
+                "MovingAveragePrice": "8.50",
+                "BaseUnit": "EA",
+                "VelocityClass": "C",
+                "TemperatureCondition": "AMBIENT",
+                "HazardousSubstanceFlag": false
+              }
+            ]
+          }
+        },
+        "create_batch_for_cds_api_batch_srv": {
+          "description": "Create a new Batch entity.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "material": {"type": "string"},
+              "batchidentifyingplant": {"type": "string"},
+              "batch": {"type": "string"},
+              "shelflifeexpirationdate": {"type": "string"}
+            },
+            "required": ["material", "batch"]
+          },
+          "mock_response": {}
+        },
+        "update_batch_for_cds_api_batch_srv": {
+          "description": "Update a Batch entity.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "material": {"type": "string"},
+              "batchidentifyingplant": {"type": "string"},
+              "batch": {"type": "string"}
+            },
+            "required": ["material", "batch"]
+          },
+          "mock_response": {}
+        },
+        "get_batch_for_cds_api_batch_srv": {
+          "description": "Retrieve a single Batch entity by key.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "material": {"type": "string", "description": "Material number"},
+              "batchidentifyingplant": {"type": "string", "description": "Plant"},
+              "batch": {"type": "string", "description": "Batch number"}
+            },
+            "required": ["material", "batch"]
+          },
+          "mock_response": {
+            "Material": "MAT-PHARMA-001",
+            "BatchIdentifyingPlant": "1000",
+            "Batch": "BATCH-001",
+            "Plant": "1000",
+            "BatchIsMarkedForDeletion": false,
+            "MatlBatchIsInRstrcdUseStock": false,
+            "Supplier": "VENDOR-1001",
+            "ShelfLifeExpirationDate": "/Date(1781308800000)/",
+            "GoodsMovementQuantity": "500.000",
+            "MovingAveragePrice": "25.00",
+            "BaseUnit": "EA",
+            "ManufactureDate": "/Date(1769472000000)/"
+          }
+        },
+        "count_batch_for_cds_api_batch_srv": {
+          "description": "Count Batch entities.",
+          "input_schema": {"type": "object", "properties": {"filter": {"type": "string"}}, "required": []},
+          "mock_response": 2
+        },
+        "list_batchplant_for_cds_api_batch_srv": {
+          "description": "Retrieve BatchPlant entities.",
+          "input_schema": {"type": "object", "properties": {"filter": {"type": "string"}}, "required": []},
+          "mock_response": {
+            "results": [
+              {"Material": "MAT-MOCK-001", "Batch": "BATCH-001", "Plant": "1000", "InventoryValuationType": ""},
+              {"Material": "MAT-MOCK-002", "Batch": "BATCH-002", "Plant": "1000", "InventoryValuationType": ""}
+            ]
+          }
+        },
+        "get_batchplant_for_cds_api_batch_srv": {
+          "description": "Get single BatchPlant entity.",
+          "input_schema": {"type": "object", "properties": {"material": {"type": "string"}, "batch": {"type": "string"}, "plant": {"type": "string"}}, "required": ["material", "batch", "plant"]},
+          "mock_response": {"Material": "MAT-MOCK-001", "Batch": "BATCH-001", "Plant": "1000"}
+        },
+        "update_batchplant_for_cds_api_batch_srv": {
+          "description": "Update BatchPlant entity.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "count_batchplant_for_cds_api_batch_srv": {
+          "description": "Count BatchPlant entities.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 2
+        },
+        "list_batchcharc_for_cds_api_batch_srv": {
+          "description": "Retrieve BatchCharc entities.", "input_schema": {"type": "object", "properties": {"filter": {"type": "string"}}, "required": []},
+          "mock_response": {"results": []}
+        },
+        "get_batchcharc_for_cds_api_batch_srv": {
+          "description": "Get single BatchCharc entity.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "count_batchcharc_for_cds_api_batch_srv": {
+          "description": "Count BatchCharc entities.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 0
+        },
+        "list_batchcharcvalue_for_cds_api_batch_srv": {
+          "description": "Retrieve BatchCharcValue entities.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {"results": []}
+        },
+        "create_batchcharcvalue_for_cds_api_batch_srv": {
+          "description": "Create BatchCharcValue entity.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "update_batchcharcvalue_for_cds_api_batch_srv": {
+          "description": "Update BatchCharcValue entity.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "delete_batchcharcvalue_for_cds_api_batch_srv": {
+          "description": "Delete BatchCharcValue entity.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "get_batchcharcvalue_for_cds_api_batch_srv": {
+          "description": "Get BatchCharcValue entity.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "count_batchcharcvalue_for_cds_api_batch_srv": {
+          "description": "Count BatchCharcValue entities.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 0
+        },
+        "list_batchclass_for_cds_api_batch_srv": {
+          "description": "Retrieve BatchClass entities.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {"results": []}
+        },
+        "create_batchclass_for_cds_api_batch_srv": {
+          "description": "Create BatchClass entity.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "delete_batchclass_for_cds_api_batch_srv": {
+          "description": "Delete BatchClass entity.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "get_batchclass_for_cds_api_batch_srv": {
+          "description": "Get BatchClass entity.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "count_batchclass_for_cds_api_batch_srv": {
+          "description": "Count BatchClass entities.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 0
+        },
+        "list_batchtext_for_cds_api_batch_srv": {
+          "description": "Retrieve BatchText entities.", "input_schema": {"type": "object", "properties": {"filter": {"type": "string"}}, "required": []},
+          "mock_response": {"results": [{"Material": "MAT-MOCK-001", "Batch": "BATCH-001", "Language": "EN", "BatchDescription": "Mock batch description"}]}
+        },
+        "update_batchtext_for_cds_api_batch_srv": {
+          "description": "Update BatchText entity.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "delete_batchtext_for_cds_api_batch_srv": {
+          "description": "Delete BatchText entity.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "get_batchtext_for_cds_api_batch_srv": {
+          "description": "Get BatchText entity.", "input_schema": {"type": "object", "properties": {}, "required": []},
+          "mock_response": {"Material": "MAT-MOCK-001", "Batch": "BATCH-001", "Language": "EN", "BatchDescription": "Mock batch description"}
+        },
+        "count_batchtext_for_cds_api_batch_srv": {
+          "description": "Count BatchText entities.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 1
+        }
+      }
+    },
+    "shelf-life-data": {
+      "mcp_server_name": "sap.mcp/sap_self",
+      "description": "MCP server for SAP Shelf Life Data (CT_RIMS_SLVERSION_0001)",
+      "tools": {
+        "get_metadata_sap_self": {
+          "description": "Get OData service metadata.",
+          "input_schema": {"type": "object", "properties": {}, "required": []},
+          "mock_response": "<edmx:Edmx Version=\"4.0\"/>"
+        },
+        "batch_for_sap_self": {
+          "description": "Batch request.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "list_shelflife_for_sap_self": {
+          "description": "Retrieve ShelfLife records.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "filter": {"type": "string", "description": "OData $filter expression"},
+              "select": {"type": "string"},
+              "top": {"type": "string"},
+              "skip": {"type": "string"}
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": [
+              {
+                "Uuid": "uuid-mock-shelf-001",
+                "ProtocolId": "PROTO-001",
+                "Material": "MAT-MOCK-001",
+                "Country": "US",
+                "ApprovedShelfLife": 180,
+                "ApprovedSlUom": "DAY",
+                "FiledShelfLife": 180,
+                "FiledSlUom": "DAY",
+                "RIMSStatus": "APPROVED",
+                "Deleted": false
+              },
+              {
+                "Uuid": "uuid-mock-shelf-002",
+                "ProtocolId": "PROTO-002",
+                "Material": "MAT-MOCK-002",
+                "Country": "DE",
+                "ApprovedShelfLife": 365,
+                "ApprovedSlUom": "DAY",
+                "FiledShelfLife": 365,
+                "FiledSlUom": "DAY",
+                "RIMSStatus": "APPROVED",
+                "Deleted": false
+              }
+            ]
+          }
+        },
+        "create_shelflife_for_sap_self": {
+          "description": "Create ShelfLife record.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "update_shelflife_for_sap_self": {
+          "description": "Update ShelfLife record.", "input_schema": {"type": "object", "properties": {"uuid": {"type": "string"}}, "required": ["uuid"]}, "mock_response": {}
+        },
+        "get_shelflife_for_sap_self": {
+          "description": "Get single ShelfLife record.",
+          "input_schema": {"type": "object", "properties": {"uuid": {"type": "string"}}, "required": ["uuid"]},
+          "mock_response": {"Uuid": "uuid-mock-shelf-001", "Material": "MAT-MOCK-001", "ApprovedShelfLife": 180, "ApprovedSlUom": "DAY", "RIMSStatus": "APPROVED"}
+        },
+        "count_shelflife_for_sap_self": {
+          "description": "Count ShelfLife records.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 2
+        }
+      }
+    },
+    "warehouse-available-stock": {
+      "mcp_server_name": "sap.mcp/sap_self",
+      "description": "MCP server for SAP Warehouse Available Stock (WAREHOUSEAVAILABLESTOCK_0001)",
+      "tools": {
+        "get_metadata_sap_self": {
+          "description": "Get service metadata.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": "<edmx:Edmx Version=\"4.0\"/>"
+        },
+        "batch_for_sap_self": {
+          "description": "Batch request.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "list_warehouseavailablestock_for_sap_self": {
+          "description": "Retrieve WarehouseAvailableStock records.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "filter": {"type": "string", "description": "OData $filter expression"},
+              "select": {"type": "string"},
+              "top": {"type": "string"}
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": [
+              {
+                "EWMWarehouse": "WH01",
+                "Product": "MAT-MOCK-001",
+                "Batch": "BATCH-001",
+                "EWMStockOwner": "",
+                "EntitledToDisposeParty": "",
+                "EWMStockType": "F1",
+                "EWMStockUsage": "",
+                "StockDocumentCategory": "",
+                "EWMDocumentCategory": "",
+                "EWMStorageBin": "BIN-C5",
+                "GoodsMovementQuantity": "500.000",
+                "BaseUnit": "EA"
+              },
+              {
+                "EWMWarehouse": "WH01",
+                "Product": "MAT-MOCK-002",
+                "Batch": "BATCH-002",
+                "EWMStockOwner": "",
+                "EntitledToDisposeParty": "",
+                "EWMStockType": "F1",
+                "EWMStockUsage": "",
+                "EWMStorageBin": "BIN-B3",
+                "GoodsMovementQuantity": "250.000",
+                "BaseUnit": "EA"
+              }
+            ]
+          }
+        },
+        "get_warehouseavailablestock_for_sap_self": {
+          "description": "Get single WarehouseAvailableStock record.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "ewmwarehouse": {"type": "string"},
+              "product": {"type": "string"},
+              "batch": {"type": "string"},
+              "ewmstocktype": {"type": "string"}
+            },
+            "required": ["ewmwarehouse", "product", "batch"]
+          },
+          "mock_response": {
+            "EWMWarehouse": "WH01",
+            "Product": "MAT-MOCK-001",
+            "Batch": "BATCH-001",
+            "EWMStockType": "F1",
+            "EWMStorageBin": "BIN-C5",
+            "GoodsMovementQuantity": "500.000",
+            "BaseUnit": "EA"
+          }
+        },
+        "count_warehouseavailablestock_for_sap_self": {
+          "description": "Count WarehouseAvailableStock records.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 2
+        }
+      }
+    },
+    "warehouse-storage-bin": {
+      "mcp_server_name": "sap.mcp/sap_self",
+      "description": "MCP server for SAP Warehouse Storage Bin (WAREHOUSESTORAGEBIN_0001)",
+      "tools": {
+        "get_metadata_sap_self": {
+          "description": "Get service metadata.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": "<edmx:Edmx Version=\"4.0\"/>"
+        },
+        "batch_for_sap_self": {
+          "description": "Batch request.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "list_warehousestoragebin_for_sap_self": {
+          "description": "Retrieve WarehouseStorageBin records.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "filter": {"type": "string", "description": "OData $filter — e.g. EWMWarehouse eq 'WH01'"},
+              "select": {"type": "string"},
+              "top": {"type": "string"}
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": [
+              {
+                "EWMWarehouse": "WH01",
+                "EWMStorageBin": "BIN-A1",
+                "EWMStorageType": "010",
+                "EWMStorageSection": "001",
+                "EWMStorageBinType": "STD",
+                "EWMStorageBinAccessType": "0001",
+                "EWMStorageGroup": "SG01",
+                "EWMStorageBinMaximumWeight": "1000.000",
+                "VelocityClass": "A",
+                "TemperatureCondition": "AMBIENT"
+              },
+              {
+                "EWMWarehouse": "WH01",
+                "EWMStorageBin": "BIN-C5",
+                "EWMStorageType": "030",
+                "EWMStorageSection": "003",
+                "EWMStorageBinType": "STD",
+                "EWMStorageBinAccessType": "0001",
+                "EWMStorageGroup": "SG03",
+                "EWMStorageBinMaximumWeight": "2000.000",
+                "VelocityClass": "C",
+                "TemperatureCondition": "AMBIENT"
+              }
+            ]
+          }
+        },
+        "create_warehousestoragebin_for_sap_self": {
+          "description": "Create WarehouseStorageBin entity.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "update_warehousestoragebin_for_sap_self": {
+          "description": "Update WarehouseStorageBin entity.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "get_warehousestoragebin_for_sap_self": {
+          "description": "Get single WarehouseStorageBin record.",
+          "input_schema": {"type": "object", "properties": {"ewmwarehouse": {"type": "string"}, "ewmstoragebin": {"type": "string"}}, "required": ["ewmwarehouse", "ewmstoragebin"]},
+          "mock_response": {
+            "EWMWarehouse": "WH01",
+            "EWMStorageBin": "BIN-A1",
+            "VelocityClass": "A",
+            "TemperatureCondition": "AMBIENT",
+            "EWMStorageBinMaximumWeight": "1000.000"
+          }
+        },
+        "count_warehousestoragebin_for_sap_self": {
+          "description": "Count WarehouseStorageBin records.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 2
+        },
+        "action_unblockstockremoval_on_sap_self_warehousestoragebintype": {
+          "description": "Unblock stock removal on bin.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_unblockputaway_on_sap_self_warehousestoragebintype": {
+          "description": "Unblock putaway on bin.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_blockstockremoval_on_sap_self_warehousestoragebintype": {
+          "description": "Block stock removal on bin.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_blockputawayandstockremoval_on_sap_self_warehousestoragebintype": {
+          "description": "Block putaway and stock removal.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_unblockputawayandstockremoval_on_sap_self_warehousestoragebintype": {
+          "description": "Unblock putaway and stock removal.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_blockputaway_on_sap_self_warehousestoragebintype": {
+          "description": "Block putaway on bin.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        }
+      }
+    },
+    "warehouse-order-task": {
+      "mcp_server_name": "sap.mcp/sap_self",
+      "description": "MCP server for SAP Warehouse Order and Task (WAREHOUSEORDER_0001)",
+      "tools": {
+        "get_metadata_sap_self": {
+          "description": "Get service metadata.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": "<edmx:Edmx Version=\"4.0\"/>"
+        },
+        "batch_for_sap_self": {
+          "description": "Batch request.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "list_warehouseorder_for_sap_self": {
+          "description": "Retrieve WarehouseOrder records.",
+          "input_schema": {"type": "object", "properties": {"filter": {"type": "string"}, "select": {"type": "string"}, "top": {"type": "string"}}, "required": []},
+          "mock_response": {
+            "value": [
+              {"EWMWarehouse": "WH01", "WarehouseOrder": "WO-MOCK-001", "Queue": "PICK", "EWMWave": "WAVE-001"},
+              {"EWMWarehouse": "WH01", "WarehouseOrder": "WO-MOCK-002", "Queue": "PACK", "EWMWave": "WAVE-001"}
+            ]
+          }
+        },
+        "update_warehouseorder_for_sap_self": {
+          "description": "Update WarehouseOrder.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "get_warehouseorder_for_sap_self": {
+          "description": "Get single WarehouseOrder.",
+          "input_schema": {"type": "object", "properties": {"ewmwarehouse": {"type": "string"}, "warehouseorder": {"type": "string"}}, "required": ["ewmwarehouse", "warehouseorder"]},
+          "mock_response": {"EWMWarehouse": "WH01", "WarehouseOrder": "WO-MOCK-001", "Queue": "PICK"}
+        },
+        "count_warehouseorder_for_sap_self": {
+          "description": "Count WarehouseOrder records.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 2
+        },
+        "list_warehousetask_for_sap_self": {
+          "description": "Retrieve WarehouseTask records.",
+          "input_schema": {"type": "object", "properties": {"filter": {"type": "string"}, "select": {"type": "string"}, "top": {"type": "string"}}, "required": []},
+          "mock_response": {
+            "value": [
+              {
+                "EWMWarehouse": "WH01",
+                "WarehouseTask": "WT-001",
+                "WarehouseTaskItem": "0001",
+                "Product": "MAT-MOCK-001",
+                "Batch": "BATCH-001",
+                "ShelfLifeExpirationDate": "/Date(1747267200000)/",
+                "EWMStockType": "F1",
+                "WarehouseTaskStatus": "A",
+                "TargetQuantityInBaseUnit": "50.000",
+                "BaseUnit": "EA",
+                "SourceStorageBin": "BIN-C5",
+                "DestinationStorageBin": "STAGING-01"
+              },
+              {
+                "EWMWarehouse": "WH01",
+                "WarehouseTask": "WT-002",
+                "WarehouseTaskItem": "0001",
+                "Product": "MAT-MOCK-002",
+                "Batch": "BATCH-002",
+                "ShelfLifeExpirationDate": "/Date(1746576000000)/",
+                "EWMStockType": "F1",
+                "WarehouseTaskStatus": "A",
+                "TargetQuantityInBaseUnit": "30.000",
+                "BaseUnit": "EA",
+                "SourceStorageBin": "BIN-B3",
+                "DestinationStorageBin": "STAGING-01"
+              }
+            ]
+          }
+        },
+        "create_warehousetask_for_sap_self": {
+          "description": "Create WarehouseTask.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "get_warehousetask_for_sap_self": {
+          "description": "Get single WarehouseTask.",
+          "input_schema": {"type": "object", "properties": {"ewmwarehouse": {"type": "string"}, "warehousetask": {"type": "string"}}, "required": ["ewmwarehouse", "warehousetask"]},
+          "mock_response": {"EWMWarehouse": "WH01", "WarehouseTask": "WT-001", "Product": "MAT-MOCK-001", "Batch": "BATCH-001", "TargetQuantityInBaseUnit": "50.000"}
+        },
+        "count_warehousetask_for_sap_self": {
+          "description": "Count WarehouseTask records.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 2
+        },
+        "list_warehouseorderpickhndlgunit_for_sap_self": {
+          "description": "List WarehouseOrderPickHndlgUnit.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {"value": []}
+        },
+        "create_warehouseorderpickhndlgunit_for_sap_self": {
+          "description": "Create WarehouseOrderPickHndlgUnit.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "delete_warehouseorderpickhndlgunit_for_sap_self": {
+          "description": "Delete WarehouseOrderPickHndlgUnit.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "get_warehouseorderpickhndlgunit_for_sap_self": {
+          "description": "Get WarehouseOrderPickHndlgUnit.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "count_warehouseorderpickhndlgunit_for_sap_self": {
+          "description": "Count WarehouseOrderPickHndlgUnit.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 0
+        },
+        "list_warehousetaskexceptioncode_for_sap_self": {
+          "description": "List WarehouseTaskExceptionCode.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {"value": []}
+        },
+        "get_warehousetaskexceptioncode_for_sap_self": {
+          "description": "Get WarehouseTaskExceptionCode.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "count_warehousetaskexceptioncode_for_sap_self": {
+          "description": "Count WarehouseTaskExceptionCode.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 0
+        },
+        "list_warehousetaskserialnumber_for_sap_self": {
+          "description": "List WarehouseTaskSerialNumber.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {"value": []}
+        },
+        "get_warehousetaskserialnumber_for_sap_self": {
+          "description": "Get WarehouseTaskSerialNumber.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "count_warehousetaskserialnumber_for_sap_self": {
+          "description": "Count WarehouseTaskSerialNumber.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 0
+        },
+        "action_assignwarehouseorder_on_sap_self_warehouseordertype": {
+          "description": "Assign warehouse order.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_mergewarehouseorder_on_sap_self_warehouseordertype": {
+          "description": "Merge warehouse order.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_splitwarehouseorder_on_sap_self_warehouseordertype": {
+          "description": "Split warehouse order.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_confirmwarehousetaskproduct_on_sap_self_warehousetasktype": {
+          "description": "Confirm warehouse task (product).", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_cancelwarehousetask_on_sap_self_warehousetasktype": {
+          "description": "Cancel warehouse task.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_setwarehouseordertoinprocess_on_sap_self_warehouseordertype": {
+          "description": "Set warehouse order to in-process.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_unlockwarehouseorder_on_sap_self_warehouseordertype": {
+          "description": "Unlock warehouse order.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_lockwarehouseorder_on_sap_self_warehouseordertype": {
+          "description": "Lock warehouse order.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_unassignwarehouseorder_on_sap_self_warehouseordertype": {
+          "description": "Unassign warehouse order.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_reassigntowarehouseorder_on_sap_self_warehousetasktype": {
+          "description": "Reassign warehouse task to order.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_confirmwarehousetaskhndlgunit_on_sap_self_warehousetasktype": {
+          "description": "Confirm warehouse task (HU).", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_confirmwarehousetaskexact_on_sap_self_warehousetasktype": {
+          "description": "Confirm warehouse task (exact).", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_addsrlnmbrtotaskconf_on_sap_self_warehousetasktype": {
+          "description": "Add serial number to task confirmation.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        }
+      }
+    },
+    "forecast-data-extraction": {
+      "mcp_server_name": "sap.mcp/sap_self",
+      "description": "MCP server for SAP IBP Forecast Data Extraction (ForecastDataExtraction:v1)",
+      "tools": {
+        "get_metadata_sap_self": {
+          "description": "Get service metadata.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": "<edmx:Edmx Version=\"4.0\"/>"
+        },
+        "batch_for_sap_self": {
+          "description": "Batch request.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "list_ibpforecast_for_sap_self": {
+          "description": "Retrieve IBP Forecast records.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "filter": {"type": "string", "description": "OData $filter — e.g. Material eq 'MAT-MOCK-001' and Plant eq '1000'"},
+              "select": {"type": "string"},
+              "top": {"type": "string"},
+              "skip": {"type": "string"}
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": [
+              {
+                "SimulationVersionID": "BASELINE",
+                "IBPFcstDocID": "FCST-MOCK-001",
+                "Material": "MAT-MOCK-001",
+                "Plant": "1000",
+                "KeyFigure": "CONSENSUS_DEMAND",
+                "KeyFigureValue": "120.000",
+                "StartDate": "/Date(1744588800000)/",
+                "EndDate": "/Date(1747267200000)/",
+                "Unit": "EA",
+                "TimePeriodType": "WEEK",
+                "TimePeriodValue": "202516"
+              },
+              {
+                "SimulationVersionID": "BASELINE",
+                "IBPFcstDocID": "FCST-MOCK-002",
+                "Material": "MAT-MOCK-002",
+                "Plant": "1000",
+                "KeyFigure": "CONSENSUS_DEMAND",
+                "KeyFigureValue": "75.000",
+                "StartDate": "/Date(1744588800000)/",
+                "EndDate": "/Date(1747267200000)/",
+                "Unit": "EA",
+                "TimePeriodType": "WEEK",
+                "TimePeriodValue": "202516"
+              }
+            ]
+          }
+        },
+        "get_ibpforecast_for_sap_self": {
+          "description": "Get single IBP Forecast record.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "simulationversionid": {"type": "string"},
+              "ibpfcstdocid": {"type": "string"}
+            },
+            "required": ["simulationversionid", "ibpfcstdocid"]
+          },
+          "mock_response": {
+            "SimulationVersionID": "BASELINE",
+            "IBPFcstDocID": "FCST-MOCK-001",
+            "Material": "MAT-MOCK-001",
+            "Plant": "1000",
+            "KeyFigureValue": "120.000",
+            "Unit": "EA"
+          }
+        },
+        "count_ibpforecast_for_sap_self": {
+          "description": "Count IBP Forecast records.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 2
+        },
+        "list_ibpforecastcbplgattrib_for_sap_self": {
+          "description": "List IBPForecastCBPlgAttrib.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {"value": []}
+        },
+        "get_ibpforecastcbplgattrib_for_sap_self": {
+          "description": "Get IBPForecastCBPlgAttrib.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "count_ibpforecastcbplgattrib_for_sap_self": {
+          "description": "Count IBPForecastCBPlgAttrib.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 0
+        },
+        "list_ibpforecastfldctlg_for_sap_self": {
+          "description": "List IBPForecastFldCtlg.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {"value": []}
+        },
+        "get_ibpforecastfldctlg_for_sap_self": {
+          "description": "Get IBPForecastFldCtlg.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "count_ibpforecastfldctlg_for_sap_self": {
+          "description": "Count IBPForecastFldCtlg.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 0
+        }
+      }
+    },
+    "returns-inspection": {
+      "mcp_server_name": "sap.mcp/sap_self",
+      "description": "MCP server for SAP Returns Inspection (CE_RETURNSINSPECTION_0001)",
+      "tools": {
+        "get_metadata_sap_self": {
+          "description": "Get service metadata.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": "<edmx:Edmx Version=\"4.0\"/>"
+        },
+        "batch_for_sap_self": {
+          "description": "Batch request.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "list_returnsinspection_for_sap_self": {
+          "description": "Retrieve ReturnsInspection records.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "filter": {"type": "string", "description": "OData $filter — e.g. ReturnsDelivery eq 'RD-MOCK-001'"},
+              "select": {"type": "string"},
+              "top": {"type": "string"}
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": [
+              {
+                "ReturnsInspection": "RI-MOCK-001",
+                "ReturnsDelivery": "RD-MOCK-001",
+                "RetsInspectionIsToBeConfirmed": false
+              }
+            ]
+          }
+        },
+        "create_returnsinspection_for_sap_self": {
+          "description": "Create ReturnsInspection.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "delete_returnsinspection_for_sap_self": {
+          "description": "Delete ReturnsInspection.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "get_returnsinspection_for_sap_self": {
+          "description": "Get single ReturnsInspection.",
+          "input_schema": {"type": "object", "properties": {"returnsinspection": {"type": "string"}}, "required": ["returnsinspection"]},
+          "mock_response": {"ReturnsInspection": "RI-MOCK-001", "ReturnsDelivery": "RD-MOCK-001"}
+        },
+        "count_returnsinspection_for_sap_self": {
+          "description": "Count ReturnsInspection records.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 1
+        },
+        "list_returnsinspectionitem_for_sap_self": {
+          "description": "List ReturnsInspectionItem records.",
+          "input_schema": {"type": "object", "properties": {"filter": {"type": "string"}}, "required": []},
+          "mock_response": {
+            "value": [
+              {
+                "ReturnsInspection": "RI-MOCK-001",
+                "ReturnsInspectionItem": "0001",
+                "ReturnsDeliveryItem": "000010",
+                "InspectionCode": "A1",
+                "InspectedProductQuantity": "50.000",
+                "InspectedProductUnit": "EA",
+                "TargetPlant": "1000",
+                "TargetStorageLocation": "WH01",
+                "TargetStockType": "F1",
+                "Supplier": "VENDOR-1001",
+                "ReturnsFollowUpActivity": "01"
+              }
+            ]
+          }
+        },
+        "update_returnsinspectionitem_for_sap_self": {
+          "description": "Update ReturnsInspectionItem.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "get_returnsinspectionitem_for_sap_self": {
+          "description": "Get single ReturnsInspectionItem.",
+          "input_schema": {"type": "object", "properties": {"returnsinspection": {"type": "string"}, "returnsinspectionitem": {"type": "string"}}, "required": []},
+          "mock_response": {"ReturnsInspection": "RI-MOCK-001", "ReturnsInspectionItem": "0001", "Supplier": "VENDOR-1001"}
+        },
+        "count_returnsinspectionitem_for_sap_self": {
+          "description": "Count ReturnsInspectionItem records.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": 1
+        },
+        "action_confirmretsinspbydelivery_on_sap_self_returnsinspection_type": {
+          "description": "Confirm returns inspection by delivery.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_deleteretsinspbydelivery_on_sap_self_returnsinspection_type": {
+          "description": "Delete returns inspection by delivery.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        },
+        "action_updateretsinspbydelivery_on_sap_self_returnsinspection_type": {
+          "description": "Update returns inspection by delivery.", "input_schema": {"type": "object", "properties": {}, "required": []}, "mock_response": {}
+        }
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "created_for_agent": "batch-expiry-risk-agent",
+    "mock_mode": true,
+    "deterministic": true,
+    "total_servers": 7,
+    "total_tools": 85,
+    "generated_from": [
+      "specification/batch-expiry-risk-agent/mcps/batch-master-record/translation.json",
+      "specification/batch-expiry-risk-agent/mcps/shelf-life-data/translation.json",
+      "specification/batch-expiry-risk-agent/mcps/warehouse-available-stock/translation.json",
+      "specification/batch-expiry-risk-agent/mcps/warehouse-storage-bin/translation.json",
+      "specification/batch-expiry-risk-agent/mcps/warehouse-order-task/translation.json",
+      "specification/batch-expiry-risk-agent/mcps/forecast-data-extraction/translation.json",
+      "specification/batch-expiry-risk-agent/mcps/returns-inspection/translation.json"
+    ],
+    "generation_date": "2025-04-14"
+  }
+}

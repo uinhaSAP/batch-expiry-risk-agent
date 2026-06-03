@@ -1,0 +1,14 @@
+apiVersion: solution.sap/v1
+kind: Solution
+
+metadata:
+  name: batch-expiry-risk-agent-8484d
+  version: 1.0.0
+  description: >
+    Proactive batch expiry risk management AI agent for SAP EWM + SAP IBP.
+    Identifies at-risk batches before SLED/BBD, scores financial exposure,
+    and recommends prioritised actions (redistribution, markdown, RTV, disposal)
+    — without creating any SAP documents. Human approval required for all actions.
+
+assets:
+  - ref: ./assets/batch-expiry-risk-agent/asset.yaml

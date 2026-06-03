@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd_a2x.ibp.api_forecast.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="IBPForecastFldCtlgType">
+                <Key>
+                    <PropertyRef Name="SimulationVersionID"/>
+                    <PropertyRef Name="IBPFcstDocID"/>
+                </Key>
+                <Property Name="SimulationVersionID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="IBPFcstDocID" Type="Edm.Decimal" Nullable="false" Precision="18"/>
+                <Property Name="IBPFcstDocRefDocTypeExt" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="IBPFcstDocDelivPrio" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="IBPFcstDocCustRgn" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="IBPFcstDocCustClassfctn" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="IBPFcstDocCust" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="IBPFcstDocCustGrp" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="IBPFcstDocCustCntry" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="IBPFcstDocSlsDstrct" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="IBPFcstDocSh2P" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="IBPFcstDocCstmAttrib1" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="IBPFcstDocCstmAttrib2" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="IBPFcstDocCstmAttrib3" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="IBPFcstDocCstmAttrib4" Type="Edm.Date"/>
+                <Property Name="IBPFcstDocCstmAttrib5" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="IBPFcstDocCstmAttrib6" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="IBPFcstDocCstmAttrib7" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="IBPFcstDocCstmAttrib8" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="IBPFcstDocCstmAttrib9" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2"/>
+                <Property Name="IBPFcstDocCstmAttrib10" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="IBPFcstProdBaseUoM" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <NavigationProperty Name="_FcstDoc" Type="com.sap.gateway.srvd_a2x.ibp.api_forecast.v0001.IBPForecastType" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="IBPForecastCBPlgAttribType">
+                <Key>
+                    <PropertyRef Name="SimulationVersionID"/>
+                    <PropertyRef Name="IBPFcstDocID"/>
+                    <PropertyRef Name="IBPFcstDocCBPlgAttribID"/>
+                </Key>
+                <Property Name="SimulationVersionID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="IBPFcstDocID" Type="Edm.Decimal" Nullable="false" Precision="18"/>
+                <Property Name="IBPFcstDocCBPlgAttribID" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="IBPFcstDocCBPlgAttribIntgr" Type="Edm.Int32"/>
+                <Property Name="IBPFcstDocCBPlgAttribStr" Type="Edm.String" MaxLength="70"/>
+                <NavigationProperty Name="_FcstDoc" Type="com.sap.gateway.srvd_a2x.ibp.api_forecast.v0001.IBPForecastType" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="IBPForecastType">
+                <Key>
+                    <PropertyRef Name="SimulationVersionID"/>
+                    <PropertyRef Name="IBPFcstDocID"/>
+                </Key>
+                <Property Name="SimulationVersionID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="IBPFcstDocID" Type="Edm.Decimal" Nullable="false" Precision="18"/>
+                <Property Name="IBPFcstDocLocationID" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="IBPFcstDocProductID" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="IBPFcstDocReqdDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="IBPFcstDocOpenQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="IBPFcstDocOriglQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="IBPFcstProductBaseUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="PlanningAreaID" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="VersionID" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <NavigationProperty Name="_FcstCBPlgAttrib" Type="Collection(com.sap.gateway.srvd_a2x.ibp.api_forecast.v0001.IBPForecastCBPlgAttribType)"/>
+                <NavigationProperty Name="_FcstFldCtlg" Type="com.sap.gateway.srvd_a2x.ibp.api_forecast.v0001.IBPForecastFldCtlgType" Nullable="false"/>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="IBPForecast" EntityType="com.sap.gateway.srvd_a2x.ibp.api_forecast.v0001.IBPForecastType">
+                    <NavigationPropertyBinding Path="_FcstCBPlgAttrib" Target="IBPForecastCBPlgAttrib"/>
+                    <NavigationPropertyBinding Path="_FcstFldCtlg" Target="IBPForecastFldCtlg"/>
+                </EntitySet>
+                <EntitySet Name="IBPForecastCBPlgAttrib" EntityType="com.sap.gateway.srvd_a2x.ibp.api_forecast.v0001.IBPForecastCBPlgAttribType">
+                    <NavigationPropertyBinding Path="_FcstDoc" Target="IBPForecast"/>
+                </EntitySet>
+                <EntitySet Name="IBPForecastFldCtlg" EntityType="com.sap.gateway.srvd_a2x.ibp.api_forecast.v0001.IBPForecastFldCtlgType">
+                    <NavigationPropertyBinding Path="_FcstDoc" Target="IBPForecast"/>
+                </EntitySet>
+            </EntityContainer>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocRefDocTypeExt">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Sales Document Type"/>
+                <Annotation Term="SAP__common.Heading" String="SaTy"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AUART"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocCustGrp">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Customer Group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocSlsDstrct">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Sales District"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocSh2P">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Ship-To Party"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocCstmAttrib1">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Custom Attribute 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Custom Attribute 1 (Length 10)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocCstmAttrib2">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Custom Attribute 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Custom Attribute 2 (Length 10)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocCstmAttrib3">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Custom Attribute 3"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Custom Attribute 3 (Length 10)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocCstmAttrib5">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Custom Attribute 5"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Custom Attribute 5 (Length 20)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocCstmAttrib6">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Custom Attribute 6"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Custom Attribute 6 (Length 20)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocCstmAttrib8">
+                <Annotation Term="SAP__measures.Unit" Path="IBPFcstProdBaseUoM"/>
+                <Annotation Term="SAP__common.Label" String="Custom Attribute 8"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Custom Attribute 8 (Quantity 13,3)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocCstmAttrib10">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Custom Attribute 10"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Custom Attribute 10 (Length 40)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstProdBaseUoM">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Base Unit of Measure"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType">
+                <Annotation Term="SAP__common.Label" String="Forecast Field Catalog"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/IBPForecastFldCtlg">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_FcstDoc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="IBPFcstDocRefDocTypeExt"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="IBPFcstDocCstmAttrib8"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastCBPlgAttribType/IBPFcstDocCBPlgAttribID">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Attribute ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastCBPlgAttribType">
+                <Annotation Term="SAP__common.Label" String="Forecast CBP Attribute"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/IBPForecastCBPlgAttrib">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_FcstDoc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastType/IBPFcstDocLocationID">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Location"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastType/IBPFcstDocProductID">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Product ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastType/IBPFcstDocOpenQuantity">
+                <Annotation Term="SAP__measures.Unit" Path="IBPFcstProductBaseUnit"/>
+                <Annotation Term="SAP__common.Label" String="Pl.-Rel. Open Quant."/>
+                <Annotation Term="SAP__common.Heading" String="Planning-Relevant Open Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Planning-Relevant Open Quantity"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastType/IBPFcstDocOriglQuantity">
+                <Annotation Term="SAP__measures.Unit" Path="IBPFcstProductBaseUnit"/>
+                <Annotation Term="SAP__common.Label" String="Orig Forecast Qty"/>
+                <Annotation Term="SAP__common.Heading" String="Orig Forecast Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Original Forecast Quantity"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastType/IBPFcstProductBaseUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Base Unit of Measure"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastType/PlanningAreaID">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Planning Area"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastType/VersionID">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Version"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastType">
+                <Annotation Term="SAP__common.Label" String="Forecast Document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/IBPForecast">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_FcstCBPlgAttrib</PropertyPath>
+                                <PropertyPath>_FcstFldCtlg</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="IBPFcstDocOpenQuantity"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="IBPFcstDocOriglQuantity"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/SimulationVersionID">
+                <Annotation Term="SAP__common.Label" String="SimVers ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocID">
+                <Annotation Term="SAP__common.Label" String="Internal Order ID"/>
+                <Annotation Term="SAP__common.Heading" String="Order ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Order ID (Internal)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocDelivPrio">
+                <Annotation Term="SAP__common.Label" String="Delivery Prior."/>
+                <Annotation Term="SAP__common.Heading" String="DPrio"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Delivery Priority for Forecast (not restricted to NUMC2)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocCstmAttrib4">
+                <Annotation Term="SAP__common.Label" String="Custom Attribute 4"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Custom Attribute 4 (Date)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocCstmAttrib7">
+                <Annotation Term="SAP__common.Label" String="Custom Attribute 7"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Custom Attribute 7 (Int4)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastFldCtlgType/IBPFcstDocCstmAttrib9">
+                <Annotation Term="SAP__common.Label" String="Custom Attribute 9"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Custom Attribute 9 (Decimal 3,2)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastCBPlgAttribType/SimulationVersionID">
+                <Annotation Term="SAP__common.Label" String="SimVers ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastCBPlgAttribType/IBPFcstDocID">
+                <Annotation Term="SAP__common.Label" String="Internal Element ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Element ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastCBPlgAttribType/IBPFcstDocCBPlgAttribIntgr">
+                <Annotation Term="SAP__common.Label" String="INTG Attribute Value"/>
+                <Annotation Term="SAP__common.Heading" String="INTEGER Attribute Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Attribute value of type INTEGER"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastCBPlgAttribType/IBPFcstDocCBPlgAttribStr">
+                <Annotation Term="SAP__common.Label" String="Attribute Value"/>
+                <Annotation Term="SAP__common.Heading" String="NVARCHAR Attribute Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Attribute value of type NVARCHAR with max length 70"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastType/SimulationVersionID">
+                <Annotation Term="SAP__common.Label" String="SimVers ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastType/IBPFcstDocID">
+                <Annotation Term="SAP__common.Label" String="Internal Element ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Element ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.IBPForecastType/IBPFcstDocReqdDateTime">
+                <Annotation Term="SAP__common.Label" String="Time Stamp"/>
+                <Annotation Term="SAP__common.QuickInfo" String="UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=TIMESTAMP"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

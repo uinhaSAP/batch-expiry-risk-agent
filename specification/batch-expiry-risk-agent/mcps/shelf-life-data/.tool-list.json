@@ -1,0 +1,9 @@
+[
+  "get_metadata_sap_self",
+  "batch_for_sap_self",
+  "list_shelflife_for_sap_self",
+  "create_shelflife_for_sap_self",
+  "update_shelflife_for_sap_self",
+  "get_shelflife_for_sap_self",
+  "count_shelflife_for_sap_self"
+]

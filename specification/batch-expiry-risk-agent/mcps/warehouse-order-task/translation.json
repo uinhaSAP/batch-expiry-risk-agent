@@ -1,0 +1,2061 @@
+{
+  "mcpTranslationVersion": "0.1",
+  "target": {
+    "ordId": "sap.s4:apiResource:WAREHOUSEORDER_0001:v1",
+    "type": "edmx"
+  },
+  "serverInfo": {
+    "name": "sap.mcp/sap_self",
+    "title": "sap_self",
+    "version": "1.0.0",
+    "description": "MCP server for the sap_self service."
+  },
+  "tools": [
+    {
+      "name": "get_metadata_sap_self",
+      "title": "get_metadata_sap_self",
+      "description": "Get metadata of the OData service with optional filtering to reduce token consumption.\nReturns the metadata in XML format, which can be used to discover available entities and their properties.\nCall this endpoint every time before you call other tools to ensure understanding of the schema.\nBased on the metadata, you can dynamically create an OData request.\n\nUse filtering parameters to get specific metadata sections. Without parameters, this tool returns the complete XML metadata (which might be huge).\nOnly use the specified enum values for the filtering parameters.\n",
+      "odataType": {
+        "metadataRequest": {}
+      }
+    },
+    {
+      "name": "batch_for_sap_self",
+      "title": "batch_for_sap_self",
+      "description": "Execute multiple OData operations in a single batch request using the $batch endpoint. This allows you to combine multiple tool calls into one HTTP request, improving efficiency when performing multiple operations.",
+      "odataType": {
+        "batchRequest": {}
+      }
+    },
+    {
+      "name": "list_warehouseorder_for_sap_self",
+      "title": "list_WarehouseOrder_for_sap_self",
+      "description": "Retrieve a list of entities from the WarehouseOrder collection in the sap_self service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrder",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "count"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "update_warehouseorder_for_sap_self",
+      "title": "update_WarehouseOrder_for_sap_self",
+      "description": "Update an entity in WarehouseOrder EntitySet in the sap_self service. Provide the key properties to identify the entity and the properties to update in the request body. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrder",
+          "crudOperation": "update",
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            },
+            {
+              "name": "Queue",
+              "newParameterName": "queue"
+            },
+            {
+              "name": "EWMWave",
+              "newParameterName": "ewmwave"
+            },
+            {
+              "name": "SAP__Messages",
+              "newParameterName": "sap_messages"
+            },
+            {
+              "name": "_WarehouseOrderPickHndlgUnit",
+              "newParameterName": "warehouseorderpickhndlgunit"
+            },
+            {
+              "name": "_WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_warehouseorder_for_sap_self",
+      "title": "get_WarehouseOrder_for_sap_self",
+      "description": "Retrieve a single entity by its key from the WarehouseOrder collection in the sap_self service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrder",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_warehouseorder_for_sap_self",
+      "title": "count_WarehouseOrder_for_sap_self",
+      "description": "Get the total count of entities in the WarehouseOrder collection in the sap_self service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrder",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_warehouseorderpickhndlgunit_for_sap_self",
+      "title": "list_WarehouseOrderPickHndlgUnit_for_sap_self",
+      "description": "Retrieve a list of entities from the WarehouseOrderPickHndlgUnit collection in the sap_self service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrderPickHndlgUnit",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "count"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "create_warehouseorderpickhndlgunit_for_sap_self",
+      "title": "create_WarehouseOrderPickHndlgUnit_for_sap_self",
+      "description": "Create a new instance of the WarehouseOrderPickHndlgUnit EntitySet in the sap_self service. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrderPickHndlgUnit",
+          "crudOperation": "create",
+          "parameters": [
+            {
+              "name": "HandlingUnitExternalID",
+              "newParameterName": "handlingunitexternalid"
+            },
+            {
+              "name": "SAP__Messages",
+              "newParameterName": "sap_messages"
+            },
+            {
+              "name": "_WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "delete_warehouseorderpickhndlgunit_for_sap_self",
+      "title": "delete_WarehouseOrderPickHndlgUnit_for_sap_self",
+      "description": "Delete an entity from WarehouseOrderPickHndlgUnit EntitySet in the sap_self service.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrderPickHndlgUnit",
+          "crudOperation": "delete",
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            },
+            {
+              "name": "HandlingUnitExternalID",
+              "newParameterName": "handlingunitexternalid"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_warehouseorderpickhndlgunit_for_sap_self",
+      "title": "get_WarehouseOrderPickHndlgUnit_for_sap_self",
+      "description": "Retrieve a single entity by its key from the WarehouseOrderPickHndlgUnit collection in the sap_self service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrderPickHndlgUnit",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            },
+            {
+              "name": "HandlingUnitExternalID",
+              "newParameterName": "handlingunitexternalid"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_warehouseorderpickhndlgunit_for_sap_self",
+      "title": "count_WarehouseOrderPickHndlgUnit_for_sap_self",
+      "description": "Get the total count of entities in the WarehouseOrderPickHndlgUnit collection in the sap_self service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrderPickHndlgUnit",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_warehousetask_for_sap_self",
+      "title": "list_WarehouseTask_for_sap_self",
+      "description": "Retrieve a list of entities from the WarehouseTask collection in the sap_self service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "count"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "create_warehousetask_for_sap_self",
+      "title": "create_WarehouseTask_for_sap_self",
+      "description": "Create a new instance of the WarehouseTask EntitySet in the sap_self service. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "crudOperation": "create",
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            },
+            {
+              "name": "WhseTaskCrtnUTCDateTime",
+              "newParameterName": "whsetaskcrtnutcdatetime"
+            },
+            {
+              "name": "WhseTaskLastChgUTCDateTime",
+              "newParameterName": "whsetasklastchgutcdatetime"
+            },
+            {
+              "name": "WhseTaskConfUTCDateTime",
+              "newParameterName": "whsetaskconfutcdatetime"
+            },
+            {
+              "name": "ConfirmedByUser",
+              "newParameterName": "confirmedbyuser"
+            },
+            {
+              "name": "WhseTaskPlannedClosingDateTime",
+              "newParameterName": "whsetaskplannedclosingdatetime"
+            },
+            {
+              "name": "WhseTaskGoodsReceiptDateTime",
+              "newParameterName": "whsetaskgoodsreceiptdatetime"
+            },
+            {
+              "name": "WarehouseTaskStatus",
+              "newParameterName": "warehousetaskstatus"
+            },
+            {
+              "name": "WarehouseProcessType",
+              "newParameterName": "warehouseprocesstype"
+            },
+            {
+              "name": "WarehouseProcessCategory",
+              "newParameterName": "warehouseprocesscategory"
+            },
+            {
+              "name": "IsHandlingUnitWarehouseTask",
+              "newParameterName": "ishandlingunitwarehousetask"
+            },
+            {
+              "name": "EWMHandlingUnitType",
+              "newParameterName": "ewmhandlingunittype"
+            },
+            {
+              "name": "HandlingUnitTypeGroup",
+              "newParameterName": "handlingunittypegroup"
+            },
+            {
+              "name": "HomogeneousFullPalletPick",
+              "newParameterName": "homogeneousfullpalletpick"
+            },
+            {
+              "name": "EWMPutAwayPhysInvtryPlnSts",
+              "newParameterName": "ewmputawayphysinvtryplnsts"
+            },
+            {
+              "name": "EWMWhseTskLowStkChkPlnSts",
+              "newParameterName": "ewmwhsetsklowstkchkplnsts"
+            },
+            {
+              "name": "EWMPutAwayPhysInvtryExecSts",
+              "newParameterName": "ewmputawayphysinvtryexecsts"
+            },
+            {
+              "name": "EWMWhseTskLowStkChkExecSts",
+              "newParameterName": "ewmwhsetsklowstkchkexecsts"
+            },
+            {
+              "name": "Product",
+              "newParameterName": "product"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "BatchChangeIsNotAllowed",
+              "newParameterName": "batchchangeisnotallowed"
+            },
+            {
+              "name": "CountryOfOrigin",
+              "newParameterName": "countryoforigin"
+            },
+            {
+              "name": "ShelfLifeExpirationDate",
+              "newParameterName": "shelflifeexpirationdate"
+            },
+            {
+              "name": "EWMStockType",
+              "newParameterName": "ewmstocktype"
+            },
+            {
+              "name": "EWMStockUsage",
+              "newParameterName": "ewmstockusage"
+            },
+            {
+              "name": "EWMStockOwner",
+              "newParameterName": "ewmstockowner"
+            },
+            {
+              "name": "EntitledToDisposeParty",
+              "newParameterName": "entitledtodisposeparty"
+            },
+            {
+              "name": "WBSElementInternalID",
+              "newParameterName": "wbselementinternalid"
+            },
+            {
+              "name": "WBSElementExternalID",
+              "newParameterName": "wbselementexternalid"
+            },
+            {
+              "name": "SpecialStockIdfgSalesOrder",
+              "newParameterName": "specialstockidfgsalesorder"
+            },
+            {
+              "name": "SpecialStockIdfgSalesOrderItem",
+              "newParameterName": "specialstockidfgsalesorderitem"
+            },
+            {
+              "name": "ExecutingResource",
+              "newParameterName": "executingresource"
+            },
+            {
+              "name": "WarehouseMovementsReason",
+              "newParameterName": "warehousemovementsreason"
+            },
+            {
+              "name": "ProductionOrder",
+              "newParameterName": "productionorder"
+            },
+            {
+              "name": "EWMProductionSupplyArea",
+              "newParameterName": "ewmproductionsupplyarea"
+            },
+            {
+              "name": "EWMDocumentCategory",
+              "newParameterName": "ewmdocumentcategory"
+            },
+            {
+              "name": "EWMReferenceDocumentCategory",
+              "newParameterName": "ewmreferencedocumentcategory"
+            },
+            {
+              "name": "EWMWave",
+              "newParameterName": "ewmwave"
+            },
+            {
+              "name": "EWMWaveItem",
+              "newParameterName": "ewmwaveitem"
+            },
+            {
+              "name": "EWMDelivery",
+              "newParameterName": "ewmdelivery"
+            },
+            {
+              "name": "EWMDeliveryItem",
+              "newParameterName": "ewmdeliveryitem"
+            },
+            {
+              "name": "EWMProductionMaterialRequest",
+              "newParameterName": "ewmproductionmaterialrequest"
+            },
+            {
+              "name": "EWMProductionMaterialReqItem",
+              "newParameterName": "ewmproductionmaterialreqitem"
+            },
+            {
+              "name": "PurchasingDocument",
+              "newParameterName": "purchasingdocument"
+            },
+            {
+              "name": "PurchasingDocumentItem",
+              "newParameterName": "purchasingdocumentitem"
+            },
+            {
+              "name": "SalesDocument",
+              "newParameterName": "salesdocument"
+            },
+            {
+              "name": "SalesDocumentItem",
+              "newParameterName": "salesdocumentitem"
+            },
+            {
+              "name": "EWMStockReferenceDocCategory",
+              "newParameterName": "ewmstockreferencedoccategory"
+            },
+            {
+              "name": "EWMStockReferenceDocument",
+              "newParameterName": "ewmstockreferencedocument"
+            },
+            {
+              "name": "EWMStockReferenceDocumentItem",
+              "newParameterName": "ewmstockreferencedocumentitem"
+            },
+            {
+              "name": "BaseUnit",
+              "newParameterName": "baseunit"
+            },
+            {
+              "name": "EWMBaseUnitISOCode",
+              "newParameterName": "ewmbaseunitisocode"
+            },
+            {
+              "name": "AlternativeUnit",
+              "newParameterName": "alternativeunit"
+            },
+            {
+              "name": "EWMAlternativeUnitISOCode",
+              "newParameterName": "ewmalternativeunitisocode"
+            },
+            {
+              "name": "TargetQuantityInBaseUnit",
+              "newParameterName": "targetquantityinbaseunit"
+            },
+            {
+              "name": "TargetQuantityInAltvUnit",
+              "newParameterName": "targetquantityinaltvunit"
+            },
+            {
+              "name": "ActualQuantityInBaseUnit",
+              "newParameterName": "actualquantityinbaseunit"
+            },
+            {
+              "name": "ActualQuantityInAltvUnit",
+              "newParameterName": "actualquantityinaltvunit"
+            },
+            {
+              "name": "DifferenceQuantityInBaseUnit",
+              "newParameterName": "differencequantityinbaseunit"
+            },
+            {
+              "name": "DifferenceQuantityInAltvUnit",
+              "newParameterName": "differencequantityinaltvunit"
+            },
+            {
+              "name": "WhseTaskNetWeightUnitOfMeasure",
+              "newParameterName": "whsetasknetweightunitofmeasure"
+            },
+            {
+              "name": "WhseTaskNetWeight",
+              "newParameterName": "whsetasknetweight"
+            },
+            {
+              "name": "WhseTaskNetVolumeUnitOfMeasure",
+              "newParameterName": "whsetasknetvolumeunitofmeasure"
+            },
+            {
+              "name": "WhseTaskNetVolume",
+              "newParameterName": "whsetasknetvolume"
+            },
+            {
+              "name": "Kanban",
+              "newParameterName": "kanban"
+            },
+            {
+              "name": "SourceStorageType",
+              "newParameterName": "sourcestoragetype"
+            },
+            {
+              "name": "SourceStorageSection",
+              "newParameterName": "sourcestoragesection"
+            },
+            {
+              "name": "SourceStorageBin",
+              "newParameterName": "sourcestoragebin"
+            },
+            {
+              "name": "SourceResource",
+              "newParameterName": "sourceresource"
+            },
+            {
+              "name": "DestinationStorageType",
+              "newParameterName": "destinationstoragetype"
+            },
+            {
+              "name": "DestinationStorageSection",
+              "newParameterName": "destinationstoragesection"
+            },
+            {
+              "name": "DestinationStorageBin",
+              "newParameterName": "destinationstoragebin"
+            },
+            {
+              "name": "DestinationResource",
+              "newParameterName": "destinationresource"
+            },
+            {
+              "name": "WhseTaskTwoStepPickingType",
+              "newParameterName": "whsetasktwosteppickingtype"
+            },
+            {
+              "name": "WhseTaskTwoStepPickingRlvnce",
+              "newParameterName": "whsetasktwosteppickingrlvnce"
+            },
+            {
+              "name": "ActivityArea",
+              "newParameterName": "activityarea"
+            },
+            {
+              "name": "SourceHandlingUnit",
+              "newParameterName": "sourcehandlingunit"
+            },
+            {
+              "name": "DestinationHandlingUnit",
+              "newParameterName": "destinationhandlingunit"
+            },
+            {
+              "name": "WrhsTaskSubsystemTransmn",
+              "newParameterName": "wrhstasksubsystemtransmn"
+            },
+            {
+              "name": "WarehouseTaskExceptionCode",
+              "newParameterName": "warehousetaskexceptioncode"
+            },
+            {
+              "name": "WhseTaskSortingSequenceValue",
+              "newParameterName": "whsetasksortingsequencevalue"
+            },
+            {
+              "name": "WarehouseOrderSequenceValue",
+              "newParameterName": "warehouseordersequencevalue"
+            },
+            {
+              "name": "WarehouseOrderActivityArea",
+              "newParameterName": "warehouseorderactivityarea"
+            },
+            {
+              "name": "WarehouseOrderCreationRule",
+              "newParameterName": "warehouseordercreationrule"
+            },
+            {
+              "name": "WarehouseOrderQueue",
+              "newParameterName": "warehouseorderqueue"
+            },
+            {
+              "name": "WarehouseActivityType",
+              "newParameterName": "warehouseactivitytype"
+            },
+            {
+              "name": "EWMConsolidationGroup",
+              "newParameterName": "ewmconsolidationgroup"
+            },
+            {
+              "name": "EWMWarehouseTaskPriority",
+              "newParameterName": "ewmwarehousetaskpriority"
+            },
+            {
+              "name": "CreatedByUser",
+              "newParameterName": "createdbyuser"
+            },
+            {
+              "name": "EWMRoute",
+              "newParameterName": "ewmroute"
+            },
+            {
+              "name": "EWMWaveCategory",
+              "newParameterName": "ewmwavecategory"
+            },
+            {
+              "name": "EWMCanceledWarehouseTask",
+              "newParameterName": "ewmcanceledwarehousetask"
+            },
+            {
+              "name": "SerialNumberRequiredLevel",
+              "newParameterName": "serialnumberrequiredlevel"
+            },
+            {
+              "name": "SAP__Messages",
+              "newParameterName": "sap_messages"
+            },
+            {
+              "name": "_WarehouseOrder",
+              "newParameterName": "warehouseorder_2"
+            },
+            {
+              "name": "_WarehouseTaskExceptionCode",
+              "newParameterName": "warehousetaskexceptioncode_2"
+            },
+            {
+              "name": "_WarehouseTaskSerialNumber",
+              "newParameterName": "warehousetaskserialnumber"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_warehousetask_for_sap_self",
+      "title": "get_WarehouseTask_for_sap_self",
+      "description": "Retrieve a single entity by its key from the WarehouseTask collection in the sap_self service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_warehousetask_for_sap_self",
+      "title": "count_WarehouseTask_for_sap_self",
+      "description": "Get the total count of entities in the WarehouseTask collection in the sap_self service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_warehousetaskexceptioncode_for_sap_self",
+      "title": "list_WarehouseTaskExceptionCode_for_sap_self",
+      "description": "Retrieve a list of entities from the WarehouseTaskExceptionCode collection in the sap_self service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTaskExceptionCode",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "count"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_warehousetaskexceptioncode_for_sap_self",
+      "title": "get_WarehouseTaskExceptionCode_for_sap_self",
+      "description": "Retrieve a single entity by its key from the WarehouseTaskExceptionCode collection in the sap_self service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTaskExceptionCode",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            },
+            {
+              "name": "WarehouseTaskExceptionCode",
+              "newParameterName": "warehousetaskexceptioncode"
+            },
+            {
+              "name": "BusinessContext",
+              "newParameterName": "businesscontext"
+            },
+            {
+              "name": "BusinessContextExecutionStep",
+              "newParameterName": "businesscontextexecutionstep"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_warehousetaskexceptioncode_for_sap_self",
+      "title": "count_WarehouseTaskExceptionCode_for_sap_self",
+      "description": "Get the total count of entities in the WarehouseTaskExceptionCode collection in the sap_self service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTaskExceptionCode",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list_warehousetaskserialnumber_for_sap_self",
+      "title": "list_WarehouseTaskSerialNumber_for_sap_self",
+      "description": "Retrieve a list of entities from the WarehouseTaskSerialNumber collection in the sap_self service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTaskSerialNumber",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "count"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_warehousetaskserialnumber_for_sap_self",
+      "title": "get_WarehouseTaskSerialNumber_for_sap_self",
+      "description": "Retrieve a single entity by its key from the WarehouseTaskSerialNumber collection in the sap_self service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTaskSerialNumber",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            },
+            {
+              "name": "EWMSerialNumber",
+              "newParameterName": "ewmserialnumber"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_warehousetaskserialnumber_for_sap_self",
+      "title": "count_WarehouseTaskSerialNumber_for_sap_self",
+      "description": "Get the total count of entities in the WarehouseTaskSerialNumber collection in the sap_self service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTaskSerialNumber",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list__warehouseorderpickhndlgunit_in_warehouseorder_for_sap_self",
+      "title": "list__WarehouseOrderPickHndlgUnit_in_WarehouseOrder_for_sap_self",
+      "description": "Navigate from WarehouseOrder to related WarehouseOrderPickHndlgUnit_Type entities via the '_WarehouseOrderPickHndlgUnit' navigation property. Supports OData query options for filtering, sorting, paging, expanding, counting, and selecting specific properties. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrder",
+          "navigationProperty": {
+            "name": "_WarehouseOrderPickHndlgUnit",
+            "crudOperation": "read",
+            "parameters": [
+              {
+                "name": "filter"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "orderby"
+              },
+              {
+                "name": "top"
+              },
+              {
+                "name": "skip"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "count"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count__warehouseorderpickhndlgunit_in_warehouseorder_for_sap_self",
+      "title": "count__WarehouseOrderPickHndlgUnit_in_WarehouseOrder_for_sap_self",
+      "description": "Count WarehouseOrderPickHndlgUnit_Type entities accessible via the '_WarehouseOrderPickHndlgUnit' navigation property of WarehouseOrder in the sap_self service. Returns the total number of matching entities.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrder",
+          "navigationProperty": {
+            "name": "_WarehouseOrderPickHndlgUnit",
+            "crudOperation": "count",
+            "parameters": [
+              {
+                "name": "filter"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list__warehousetask_in_warehouseorder_for_sap_self",
+      "title": "list__WarehouseTask_in_WarehouseOrder_for_sap_self",
+      "description": "Navigate from WarehouseOrder to related WarehouseTaskType entities via the '_WarehouseTask' navigation property. Supports OData query options for filtering, sorting, paging, expanding, counting, and selecting specific properties. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrder",
+          "navigationProperty": {
+            "name": "_WarehouseTask",
+            "crudOperation": "read",
+            "parameters": [
+              {
+                "name": "filter"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "orderby"
+              },
+              {
+                "name": "top"
+              },
+              {
+                "name": "skip"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "count"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count__warehousetask_in_warehouseorder_for_sap_self",
+      "title": "count__WarehouseTask_in_WarehouseOrder_for_sap_self",
+      "description": "Count WarehouseTaskType entities accessible via the '_WarehouseTask' navigation property of WarehouseOrder in the sap_self service. Returns the total number of matching entities.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrder",
+          "navigationProperty": {
+            "name": "_WarehouseTask",
+            "crudOperation": "count",
+            "parameters": [
+              {
+                "name": "filter"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get__warehouseorder_in_warehouseorderpickhndlgunit_for_sap_self",
+      "title": "get__WarehouseOrder_in_WarehouseOrderPickHndlgUnit_for_sap_self",
+      "description": "Navigate from WarehouseOrderPickHndlgUnit to the related WarehouseOrderType entity via the '_WarehouseOrder' navigation property. Supports $select and $expand query options. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrderPickHndlgUnit",
+          "navigationProperty": {
+            "name": "_WarehouseOrder",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            },
+            {
+              "name": "HandlingUnitExternalID",
+              "newParameterName": "handlingunitexternalid"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "update__warehouseorder_in_warehouseorderpickhndlgunit_for_sap_self",
+      "title": "update__WarehouseOrder_in_WarehouseOrderPickHndlgUnit_for_sap_self",
+      "description": "Update the WarehouseOrderType entity navigated from WarehouseOrderPickHndlgUnit via the '_WarehouseOrder' navigation property (HTTP PATCH). Provide the parent key and the properties to update. If the structure is unknown, call get_metadata_sap_self tool first.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrderPickHndlgUnit",
+          "navigationProperty": {
+            "name": "_WarehouseOrder",
+            "crudOperation": "update",
+            "parameters": [
+              {
+                "name": "Queue",
+                "newParameterName": "queue"
+              },
+              {
+                "name": "EWMWave",
+                "newParameterName": "ewmwave"
+              },
+              {
+                "name": "SAP__Messages",
+                "newParameterName": "sap_messages"
+              },
+              {
+                "name": "_WarehouseOrderPickHndlgUnit",
+                "newParameterName": "warehouseorderpickhndlgunit"
+              },
+              {
+                "name": "_WarehouseTask",
+                "newParameterName": "warehousetask"
+              },
+              {
+                "name": "if_match"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            },
+            {
+              "name": "HandlingUnitExternalID",
+              "newParameterName": "handlingunitexternalid"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get__warehouseorder_in_warehousetask_for_sap_self",
+      "title": "get__WarehouseOrder_in_WarehouseTask_for_sap_self",
+      "description": "Navigate from WarehouseTask to the related WarehouseOrderType entity via the '_WarehouseOrder' navigation property. Supports $select and $expand query options. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "navigationProperty": {
+            "name": "_WarehouseOrder",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "update__warehouseorder_in_warehousetask_for_sap_self",
+      "title": "update__WarehouseOrder_in_WarehouseTask_for_sap_self",
+      "description": "Update the WarehouseOrderType entity navigated from WarehouseTask via the '_WarehouseOrder' navigation property (HTTP PATCH). Provide the parent key and the properties to update. If the structure is unknown, call get_metadata_sap_self tool first.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "navigationProperty": {
+            "name": "_WarehouseOrder",
+            "crudOperation": "update",
+            "parameters": [
+              {
+                "name": "Queue",
+                "newParameterName": "queue"
+              },
+              {
+                "name": "EWMWave",
+                "newParameterName": "ewmwave"
+              },
+              {
+                "name": "SAP__Messages",
+                "newParameterName": "sap_messages"
+              },
+              {
+                "name": "_WarehouseOrderPickHndlgUnit",
+                "newParameterName": "warehouseorderpickhndlgunit"
+              },
+              {
+                "name": "_WarehouseTask",
+                "newParameterName": "warehousetask_2"
+              },
+              {
+                "name": "if_match"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list__warehousetaskexceptioncode_in_warehousetask_for_sap_self",
+      "title": "list__WarehouseTaskExceptionCode_in_WarehouseTask_for_sap_self",
+      "description": "Navigate from WarehouseTask to related WarehouseTaskExceptionCodeType entities via the '_WarehouseTaskExceptionCode' navigation property. Supports OData query options for filtering, sorting, paging, expanding, counting, and selecting specific properties. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "navigationProperty": {
+            "name": "_WarehouseTaskExceptionCode",
+            "crudOperation": "read",
+            "parameters": [
+              {
+                "name": "filter"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "orderby"
+              },
+              {
+                "name": "top"
+              },
+              {
+                "name": "skip"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "count"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count__warehousetaskexceptioncode_in_warehousetask_for_sap_self",
+      "title": "count__WarehouseTaskExceptionCode_in_WarehouseTask_for_sap_self",
+      "description": "Count WarehouseTaskExceptionCodeType entities accessible via the '_WarehouseTaskExceptionCode' navigation property of WarehouseTask in the sap_self service. Returns the total number of matching entities.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "navigationProperty": {
+            "name": "_WarehouseTaskExceptionCode",
+            "crudOperation": "count",
+            "parameters": [
+              {
+                "name": "filter"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "list__warehousetaskserialnumber_in_warehousetask_for_sap_self",
+      "title": "list__WarehouseTaskSerialNumber_in_WarehouseTask_for_sap_self",
+      "description": "Navigate from WarehouseTask to related WarehouseTaskSerialNumber_Type entities via the '_WarehouseTaskSerialNumber' navigation property. Supports OData query options for filtering, sorting, paging, expanding, counting, and selecting specific properties. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "navigationProperty": {
+            "name": "_WarehouseTaskSerialNumber",
+            "crudOperation": "read",
+            "parameters": [
+              {
+                "name": "filter"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "orderby"
+              },
+              {
+                "name": "top"
+              },
+              {
+                "name": "skip"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "count"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count__warehousetaskserialnumber_in_warehousetask_for_sap_self",
+      "title": "count__WarehouseTaskSerialNumber_in_WarehouseTask_for_sap_self",
+      "description": "Count WarehouseTaskSerialNumber_Type entities accessible via the '_WarehouseTaskSerialNumber' navigation property of WarehouseTask in the sap_self service. Returns the total number of matching entities.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "navigationProperty": {
+            "name": "_WarehouseTaskSerialNumber",
+            "crudOperation": "count",
+            "parameters": [
+              {
+                "name": "filter"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get__warehousetask_in_warehousetaskexceptioncode_for_sap_self",
+      "title": "get__WarehouseTask_in_WarehouseTaskExceptionCode_for_sap_self",
+      "description": "Navigate from WarehouseTaskExceptionCode to the related WarehouseTaskType entity via the '_WarehouseTask' navigation property. Supports $select and $expand query options. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTaskExceptionCode",
+          "navigationProperty": {
+            "name": "_WarehouseTask",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            },
+            {
+              "name": "WarehouseTaskExceptionCode",
+              "newParameterName": "warehousetaskexceptioncode"
+            },
+            {
+              "name": "BusinessContext",
+              "newParameterName": "businesscontext"
+            },
+            {
+              "name": "BusinessContextExecutionStep",
+              "newParameterName": "businesscontextexecutionstep"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get__warehousetask_in_warehousetaskserialnumber_for_sap_self",
+      "title": "get__WarehouseTask_in_WarehouseTaskSerialNumber_for_sap_self",
+      "description": "Navigate from WarehouseTaskSerialNumber to the related WarehouseTaskType entity via the '_WarehouseTask' navigation property. Supports $select and $expand query options. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTaskSerialNumber",
+          "navigationProperty": {
+            "name": "_WarehouseTask",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            },
+            {
+              "name": "EWMSerialNumber",
+              "newParameterName": "ewmserialnumber"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_assignwarehouseorder_on_sap_self_warehouseordertype",
+      "title": "action_AssignWarehouseOrder_on_sap_self_warehouseordertype",
+      "description": "OData bound action: AssignWarehouseOrder on entity SAP__self.WarehouseOrderType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrder",
+          "operation": {
+            "name": "AssignWarehouseOrder",
+            "type": "action",
+            "parameters": [
+              {
+                "name": "EWMResource",
+                "newParameterName": "ewmresource"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_mergewarehouseorder_on_sap_self_warehouseordertype",
+      "title": "action_MergeWarehouseOrder_on_sap_self_warehouseordertype",
+      "description": "OData bound action: MergeWarehouseOrder on entity SAP__self.WarehouseOrderType in the sap_self service. Returns: Collection(SAP__self.WarehouseOrderType)",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrder",
+          "operation": {
+            "name": "MergeWarehouseOrder",
+            "type": "action",
+            "parameters": [
+              {
+                "name": "EWMWarehouse",
+                "newParameterName": "ewmwarehouse"
+              },
+              {
+                "name": "WarehouseOrderCreationRule",
+                "newParameterName": "warehouseordercreationrule"
+              },
+              {
+                "name": "_WarehouseOrderMergeChild",
+                "newParameterName": "warehouseordermergechild"
+              }
+            ]
+          },
+          "parameters": []
+        }
+      }
+    },
+    {
+      "name": "action_addsrlnmbrtotaskconf_on_sap_self_warehousetasktype",
+      "title": "action_AddSrlNmbrToTaskConf_on_sap_self_warehousetasktype",
+      "description": "OData bound action: AddSrlNmbrToTaskConf on entity SAP__self.WarehouseTaskType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "operation": {
+            "name": "AddSrlNmbrToTaskConf",
+            "type": "action",
+            "parameters": [
+              {
+                "name": "EWMSerialNumber",
+                "newParameterName": "ewmserialnumber"
+              },
+              {
+                "name": "EWMSerialNumberIsForDiffQty",
+                "newParameterName": "ewmserialnumberisfordiffqty"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_splitwarehouseorder_on_sap_self_warehouseordertype",
+      "title": "action_SplitWarehouseOrder_on_sap_self_warehouseordertype",
+      "description": "OData bound action: SplitWarehouseOrder on entity SAP__self.WarehouseOrderType in the sap_self service. Returns: Collection(SAP__self.WarehouseOrderType)",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrder",
+          "operation": {
+            "name": "SplitWarehouseOrder",
+            "type": "action",
+            "parameters": [
+              {
+                "name": "WarehouseOrderCreationRule",
+                "newParameterName": "warehouseordercreationrule"
+              },
+              {
+                "name": "_WarehouseOrderSplitChild",
+                "newParameterName": "warehouseordersplitchild"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_confirmwarehousetaskproduct_on_sap_self_warehousetasktype",
+      "title": "action_ConfirmWarehouseTaskProduct_on_sap_self_warehousetasktype",
+      "description": "OData bound action: ConfirmWarehouseTaskProduct on entity SAP__self.WarehouseTaskType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "operation": {
+            "name": "ConfirmWarehouseTaskProduct",
+            "type": "action",
+            "parameters": [
+              {
+                "name": "AlternativeUnit",
+                "newParameterName": "alternativeunit"
+              },
+              {
+                "name": "ActualQuantityInAltvUnit",
+                "newParameterName": "actualquantityinaltvunit"
+              },
+              {
+                "name": "DifferenceQuantityInAltvUnit",
+                "newParameterName": "differencequantityinaltvunit"
+              },
+              {
+                "name": "WhseTaskExceptionCodeQtyDiff",
+                "newParameterName": "whsetaskexceptioncodeqtydiff"
+              },
+              {
+                "name": "DestinationStorageBin",
+                "newParameterName": "destinationstoragebin"
+              },
+              {
+                "name": "WhseTaskExCodeDestStorageBin",
+                "newParameterName": "whsetaskexcodedeststoragebin"
+              },
+              {
+                "name": "SourceHandlingUnit",
+                "newParameterName": "sourcehandlingunit"
+              },
+              {
+                "name": "DestinationHandlingUnit",
+                "newParameterName": "destinationhandlingunit"
+              },
+              {
+                "name": "DestinationResource",
+                "newParameterName": "destinationresource"
+              },
+              {
+                "name": "EWMPutAwayPhysInvtryExecSts",
+                "newParameterName": "ewmputawayphysinvtryexecsts"
+              },
+              {
+                "name": "EWMWhseTskLowStkChkExecSts",
+                "newParameterName": "ewmwhsetsklowstkchkexecsts"
+              },
+              {
+                "name": "EWMWhseTaskLowStockCheckQty",
+                "newParameterName": "ewmwhsetasklowstockcheckqty"
+              },
+              {
+                "name": "EWMHandlingUnitIsNotWithdrawn",
+                "newParameterName": "ewmhandlingunitisnotwithdrawn"
+              },
+              {
+                "name": "DirectWhseTaskConfIsAllowed",
+                "newParameterName": "directwhsetaskconfisallowed"
+              },
+              {
+                "name": "Batch",
+                "newParameterName": "batch"
+              },
+              {
+                "name": "EWMWhseTskExcptnCodeChgBatch",
+                "newParameterName": "ewmwhsetskexcptncodechgbatch"
+              },
+              {
+                "name": "ExternalWhseTaskIsProcessable",
+                "newParameterName": "externalwhsetaskisprocessable"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_cancelwarehousetask_on_sap_self_warehousetasktype",
+      "title": "action_CancelWarehouseTask_on_sap_self_warehousetasktype",
+      "description": "OData bound action: CancelWarehouseTask on entity SAP__self.WarehouseTaskType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "operation": {
+            "name": "CancelWarehouseTask",
+            "type": "action",
+            "parameters": [
+              {
+                "name": "DirectWhseTaskConfIsAllowed",
+                "newParameterName": "directwhsetaskconfisallowed"
+              },
+              {
+                "name": "ExternalWhseTaskIsProcessable",
+                "newParameterName": "externalwhsetaskisprocessable"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_setwarehouseordertoinprocess_on_sap_self_warehouseordertype",
+      "title": "action_SetWarehouseOrderToInProcess_on_sap_self_warehouseordertype",
+      "description": "OData bound action: SetWarehouseOrderToInProcess on entity SAP__self.WarehouseOrderType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrder",
+          "operation": {
+            "name": "SetWarehouseOrderToInProcess",
+            "type": "action",
+            "parameters": []
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_unlockwarehouseorder_on_sap_self_warehouseordertype",
+      "title": "action_UnlockWarehouseOrder_on_sap_self_warehouseordertype",
+      "description": "OData bound action: UnlockWarehouseOrder on entity SAP__self.WarehouseOrderType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrder",
+          "operation": {
+            "name": "UnlockWarehouseOrder",
+            "type": "action",
+            "parameters": []
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_unassignwarehouseorder_on_sap_self_warehouseordertype",
+      "title": "action_UnassignWarehouseOrder_on_sap_self_warehouseordertype",
+      "description": "OData bound action: UnassignWarehouseOrder on entity SAP__self.WarehouseOrderType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrder",
+          "operation": {
+            "name": "UnassignWarehouseOrder",
+            "type": "action",
+            "parameters": []
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_lockwarehouseorder_on_sap_self_warehouseordertype",
+      "title": "action_LockWarehouseOrder_on_sap_self_warehouseordertype",
+      "description": "OData bound action: LockWarehouseOrder on entity SAP__self.WarehouseOrderType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseOrder",
+          "operation": {
+            "name": "LockWarehouseOrder",
+            "type": "action",
+            "parameters": []
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseOrder",
+              "newParameterName": "warehouseorder"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_reassigntowarehouseorder_on_sap_self_warehousetasktype",
+      "title": "action_ReassignToWarehouseOrder_on_sap_self_warehousetasktype",
+      "description": "OData bound action: ReassignToWarehouseOrder on entity SAP__self.WarehouseTaskType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "operation": {
+            "name": "ReassignToWarehouseOrder",
+            "type": "action",
+            "parameters": [
+              {
+                "name": "WarehouseOrder",
+                "newParameterName": "warehouseorder"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_confirmwarehousetaskhndlgunit_on_sap_self_warehousetasktype",
+      "title": "action_ConfirmWarehouseTaskHndlgUnit_on_sap_self_warehousetasktype",
+      "description": "OData bound action: ConfirmWarehouseTaskHndlgUnit on entity SAP__self.WarehouseTaskType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "operation": {
+            "name": "ConfirmWarehouseTaskHndlgUnit",
+            "type": "action",
+            "parameters": [
+              {
+                "name": "DestinationStorageBin",
+                "newParameterName": "destinationstoragebin"
+              },
+              {
+                "name": "WhseTaskExCodeDestStorageBin",
+                "newParameterName": "whsetaskexcodedeststoragebin"
+              },
+              {
+                "name": "DestinationResource",
+                "newParameterName": "destinationresource"
+              },
+              {
+                "name": "DirectWhseTaskConfIsAllowed",
+                "newParameterName": "directwhsetaskconfisallowed"
+              },
+              {
+                "name": "ExternalWhseTaskIsProcessable",
+                "newParameterName": "externalwhsetaskisprocessable"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "action_confirmwarehousetaskexact_on_sap_self_warehousetasktype",
+      "title": "action_ConfirmWarehouseTaskExact_on_sap_self_warehousetasktype",
+      "description": "OData bound action: ConfirmWarehouseTaskExact on entity SAP__self.WarehouseTaskType in the sap_self service",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseTask",
+          "operation": {
+            "name": "ConfirmWarehouseTaskExact",
+            "type": "action",
+            "parameters": [
+              {
+                "name": "DirectWhseTaskConfIsAllowed",
+                "newParameterName": "directwhsetaskconfisallowed"
+              },
+              {
+                "name": "ExternalWhseTaskIsProcessable",
+                "newParameterName": "externalwhsetaskisprocessable"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "WarehouseTask",
+              "newParameterName": "warehousetask"
+            },
+            {
+              "name": "WarehouseTaskItem",
+              "newParameterName": "warehousetaskitem"
+            },
+            {
+              "name": "if_match"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

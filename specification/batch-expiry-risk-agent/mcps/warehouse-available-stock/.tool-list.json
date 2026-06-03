@@ -1,0 +1,7 @@
+[
+  "get_metadata_sap_self",
+  "batch_for_sap_self",
+  "list_warehouseavailablestock_for_sap_self",
+  "get_warehouseavailablestock_for_sap_self",
+  "count_warehouseavailablestock_for_sap_self"
+]

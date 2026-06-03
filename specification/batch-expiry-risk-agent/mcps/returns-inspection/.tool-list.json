@@ -1,0 +1,20 @@
+[
+  "get_metadata_sap_self",
+  "batch_for_sap_self",
+  "list_returnsinspection_for_sap_self",
+  "create_returnsinspection_for_sap_self",
+  "delete_returnsinspection_for_sap_self",
+  "get_returnsinspection_for_sap_self",
+  "count_returnsinspection_for_sap_self",
+  "list_returnsinspectionitem_for_sap_self",
+  "update_returnsinspectionitem_for_sap_self",
+  "get_returnsinspectionitem_for_sap_self",
+  "count_returnsinspectionitem_for_sap_self",
+  "list__item_in_returnsinspection_for_sap_self",
+  "create__item_in_returnsinspection_for_sap_self",
+  "count__item_in_returnsinspection_for_sap_self",
+  "get__returnsinspection_in_returnsinspectionitem_for_sap_self",
+  "action_confirmretsinspbydelivery_on_sap_self_returnsinspection_type",
+  "action_deleteretsinspbydelivery_on_sap_self_returnsinspection_type",
+  "action_updateretsinspbydelivery_on_sap_self_returnsinspection_type"
+]

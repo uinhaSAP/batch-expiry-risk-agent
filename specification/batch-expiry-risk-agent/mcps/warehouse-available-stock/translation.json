@@ -1,0 +1,160 @@
+{
+  "mcpTranslationVersion": "0.1",
+  "target": {
+    "ordId": "sap.s4:apiResource:WAREHOUSEAVAILABLESTOCK_0001:v1",
+    "type": "edmx"
+  },
+  "serverInfo": {
+    "name": "sap.mcp/sap_self",
+    "title": "sap_self",
+    "version": "1.0.0",
+    "description": "MCP server for the sap_self service."
+  },
+  "tools": [
+    {
+      "name": "get_metadata_sap_self",
+      "title": "get_metadata_sap_self",
+      "description": "Get metadata of the OData service with optional filtering to reduce token consumption.\nReturns the metadata in XML format, which can be used to discover available entities and their properties.\nCall this endpoint every time before you call other tools to ensure understanding of the schema.\nBased on the metadata, you can dynamically create an OData request.\n\nUse filtering parameters to get specific metadata sections. Without parameters, this tool returns the complete XML metadata (which might be huge).\nOnly use the specified enum values for the filtering parameters.\n",
+      "odataType": {
+        "metadataRequest": {}
+      }
+    },
+    {
+      "name": "batch_for_sap_self",
+      "title": "batch_for_sap_self",
+      "description": "Execute multiple OData operations in a single batch request using the $batch endpoint. This allows you to combine multiple tool calls into one HTTP request, improving efficiency when performing multiple operations.",
+      "odataType": {
+        "batchRequest": {}
+      }
+    },
+    {
+      "name": "list_warehouseavailablestock_for_sap_self",
+      "title": "list_WarehouseAvailableStock_for_sap_self",
+      "description": "Retrieve a list of entities from the WarehouseAvailableStock collection in the sap_self service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseAvailableStock",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "count"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "get_warehouseavailablestock_for_sap_self",
+      "title": "get_WarehouseAvailableStock_for_sap_self",
+      "description": "Retrieve a single entity by its key from the WarehouseAvailableStock collection in the sap_self service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseAvailableStock",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "EWMWarehouse",
+              "newParameterName": "ewmwarehouse"
+            },
+            {
+              "name": "Product",
+              "newParameterName": "product"
+            },
+            {
+              "name": "Batch",
+              "newParameterName": "batch"
+            },
+            {
+              "name": "EWMStockOwner",
+              "newParameterName": "ewmstockowner"
+            },
+            {
+              "name": "EntitledToDisposeParty",
+              "newParameterName": "entitledtodisposeparty"
+            },
+            {
+              "name": "EWMStockType",
+              "newParameterName": "ewmstocktype"
+            },
+            {
+              "name": "EWMStockUsage",
+              "newParameterName": "ewmstockusage"
+            },
+            {
+              "name": "StockDocumentCategory",
+              "newParameterName": "stockdocumentcategory"
+            },
+            {
+              "name": "EWMDocumentCategory",
+              "newParameterName": "ewmdocumentcategory"
+            },
+            {
+              "name": "WBSElementExternalID",
+              "newParameterName": "wbselementexternalid"
+            },
+            {
+              "name": "SpecialStockIdfgSalesOrder",
+              "newParameterName": "specialstockidfgsalesorder"
+            },
+            {
+              "name": "SpecialStockIdfgSalesOrderItem",
+              "newParameterName": "specialstockidfgsalesorderitem"
+            },
+            {
+              "name": "HandlingUnitExternalID",
+              "newParameterName": "handlingunitexternalid"
+            },
+            {
+              "name": "EWMStorageBin",
+              "newParameterName": "ewmstoragebin"
+            },
+            {
+              "name": "EWMResource",
+              "newParameterName": "ewmresource"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "count_warehouseavailablestock_for_sap_self",
+      "title": "count_WarehouseAvailableStock_for_sap_self",
+      "description": "Get the total count of entities in the WarehouseAvailableStock collection in the sap_self service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "WarehouseAvailableStock",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
