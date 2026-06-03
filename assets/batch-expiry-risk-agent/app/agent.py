@@ -158,13 +158,30 @@ async def _run_agent(
                 run_id, plants or "ALL", len(batches), len(batches),
             )
         except Exception as exc:
-            logger.error("M1.missed: batch_scan_failed | run_id=%s | reason=%s", run_id, str(exc))
+            mode_hint = (
+                "Running in mock mode (IBD_TESTING=1). "
+                "Ensure `mcp-mock.json` exists in the asset root and contains a server entry "
+                "whose tools include batch master or warehouse available-stock operations. "
+                "Run `python -c \"import json; d=json.load(open('mcp-mock.json')); "
+                "[print(s['serverName'], len(s.get('tools',[])), 'tools') for s in d]\"` "
+                "to inspect the loaded mock servers."
+                if _TESTING
+                else (
+                    "Check SAP EWM connectivity and MCP tool availability. "
+                    "If you are running locally without live SAP credentials, "
+                    "set IBD_TESTING=1 in your .env file to use mock data instead."
+                )
+            )
+            logger.error(
+                "M1.missed: batch_scan_failed | run_id=%s | mode=%s | reason=%s",
+                run_id, "mock" if _TESTING else "production", str(exc),
+            )
             return (
                 f"# Batch Expiry Risk Scan — FAILED\n\n"
                 f"**Run ID:** {run_id}\n\n"
                 f"**Error:** Could not fetch batch data from SAP EWM: {exc}\n\n"
-                f"The scan has been halted. No partial report produced. "
-                f"Check SAP EWM connectivity and MCP tool availability."
+                f"The scan has been halted. No partial report produced.\n\n"
+                f"**Hint:** {mode_hint}"
             )
 
     total_batches_scanned = len(batches)
@@ -434,11 +451,17 @@ class SampleAgent:
                 # ── Direct-pipeline mode ─────────────────────────────────────
                 # Used when IBD_TESTING=1 OR when AI Core credentials are absent.
                 # Runs the scan pipeline directly without an LLM reasoning step.
-                if not _TESTING and not _has_llm_credentials():
+                if _TESTING:
+                    logger.debug(
+                        "Mock mode active (IBD_TESTING=1): bypassing LLM, "
+                        "running scan pipeline directly against mcp-mock.json."
+                    )
+                elif not _has_llm_credentials():
                     logger.warning(
                         "No SAP AI Core credentials found (AICORE_AUTH_URL / "
                         "AICORE_CLIENT_ID not set). Running in direct-pipeline mode. "
-                        "Set AICORE_* environment variables to enable LLM reasoning."
+                        "Set AICORE_* environment variables to enable LLM reasoning, "
+                        "or set IBD_TESTING=1 to use mock data locally."
                     )
                 mcp_tools = await self._get_tools()
                 active_tools = list(tools) + mcp_tools if tools else mcp_tools
