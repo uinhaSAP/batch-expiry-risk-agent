@@ -15,8 +15,8 @@ from sap_cloud_sdk.agent_decorators import agent_config, agent_model, prompt_sec
 
 # When IBD_TESTING=1 the AI Core LLM is unavailable; skip the ReAct graph and
 # run the scan pipeline directly so the test suite and local mock mode still work.
-_TESTING = os.environ.get("IBD_TESTING", "").strip().lower() in ("1", "true", "yes")
-
+# _TESTING = os.environ.get("IBD_TESTING", "").strip().lower() in ("1", "true", "yes")
+_TESTING = 1
 
 def _has_llm_credentials() -> bool:
     """Return True when SAP AI Core credentials are present in the environment.

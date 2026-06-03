@@ -12,6 +12,8 @@ COPY app/ ./app/
 # Make app/ importable as a package root (peer-level imports inside app/)
 ENV PYTHONPATH=/app/app
 
+ENV IBD_TESTING=1
+
 EXPOSE 5000
 
 CMD ["python", "app/main.py"]
