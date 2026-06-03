@@ -1,17 +1,45 @@
 import logging
+import os
 import time
 import uuid
 from dataclasses import dataclass
 from typing import AsyncGenerator, Literal, Sequence
 
-from langchain.agents import create_agent
-from langchain.agents.middleware import SummarizationMiddleware
-from langchain_core.messages import HumanMessage
-from langchain_core.tools import BaseTool
+from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_core.tools import BaseTool, tool
 from langchain_litellm import ChatLiteLLM
 from langgraph.checkpoint.memory import InMemorySaver
+from langgraph.prebuilt import create_react_agent
 from opentelemetry import trace
 from sap_cloud_sdk.agent_decorators import agent_config, agent_model, prompt_section
+
+# When IBD_TESTING=1 the AI Core LLM is unavailable; skip the ReAct graph and
+# run the scan pipeline directly so the test suite and local mock mode still work.
+_TESTING = os.environ.get("IBD_TESTING", "").strip().lower() in ("1", "true", "yes")
+
+
+def _has_llm_credentials() -> bool:
+    """Return True when SAP AI Core credentials are present in the environment.
+
+    LiteLLM/SAP Cloud SDK resolves credentials from these standard env vars.
+    If none are set the LLM call will raise SapException and the agent cannot
+    serve requests in ReAct mode.
+    """
+    return any(
+        os.environ.get(var)
+        for var in (
+            "AICORE_AUTH_URL",
+            "AICORE_CLIENT_ID",
+            "AICORE_CLIENT_SECRET",
+            "AICORE_SERVICE_KEY",
+            "AICORE_BASE_URL",
+        )
+    )
+
+
+def _use_react_agent() -> bool:
+    """True only when not in test mode AND real LLM credentials are available."""
+    return not _TESTING and _has_llm_credentials()
 
 from mcp_tools import get_mcp_tools
 from models import FullBatchReport, ScoredBatch
@@ -60,7 +88,26 @@ def get_temperature() -> float:
     validation={"format": "markdown", "max_length": 5000},
 )
 def get_system_prompt() -> str:
-    return """You are a proactive batch expiry risk management agent operating within SAP EWM and SAP IBP. Your sole purpose is to prevent inventory write-offs by identifying at-risk batches early and recommending concrete, prioritised actions before expiry occurs. You are a recommendation engine, NOT an execution engine — you surface risk and propose actions; a human must approve and trigger any warehouse movements, vendor communications, or markdown events. NEVER create, post, or confirm any SAP document. NEVER recommend redistribution to a temperature-incompatible bin. NEVER recommend RTV if days_to_expiry is below the minimum days remaining threshold. NEVER include personally identifiable information of warehouse staff in any output. Always set top to a maximum of 100 on any tool call that accepts a page-size parameter to prevent context overflow, and inform the user when this limit is applied. Do not hallucinate batch data, stock quantities, or demand figures — use only data returned by MCP tools."""
+    return """You are a proactive batch expiry risk management agent operating within SAP EWM and SAP IBP. \
+Your sole purpose is to prevent inventory write-offs by identifying at-risk batches early and recommending \
+concrete, prioritised actions before expiry occurs.
+
+You are a recommendation engine, NOT an execution engine — you surface risk and propose actions; a human \
+must approve and trigger any warehouse movements, vendor communications, or markdown events.
+
+NEVER create, post, or confirm any SAP document.
+NEVER recommend redistribution to a temperature-incompatible bin.
+NEVER recommend RTV if days_to_expiry is below the minimum days remaining threshold.
+NEVER include personally identifiable information of warehouse staff in any output.
+Always set top to a maximum of 100 on any tool call that accepts a page-size parameter to prevent \
+context overflow, and inform the user when this limit is applied.
+Do not hallucinate batch data, stock quantities, or demand figures — use only data returned by MCP tools.
+
+When the user asks you to run a batch expiry scan, analyse risk, or generate a report, call the \
+`run_batch_expiry_risk_scan` tool with the user's full query. For all other questions (explanations, \
+configuration advice, follow-up questions about a previous report, etc.) answer directly from your knowledge \
+without calling any tool. When a user asks about specific batches or results from a prior scan that is \
+visible in the conversation history, refer to those results directly."""
 
 
 @dataclass
@@ -274,6 +321,37 @@ async def _run_agent(
             )
 
 
+def _make_scan_tool(mcp_tools: list):
+    """Return a LangChain @tool wrapping the scan pipeline with a captured tool list."""
+
+    @tool
+    async def run_batch_expiry_risk_scan(query: str) -> str:
+        """Run the full batch expiry risk scan against SAP EWM and SAP IBP.
+
+        Use this tool whenever the user asks to:
+        - Run a batch expiry scan or risk analysis
+        - Generate a batch expiry report
+        - Find at-risk or soon-to-expire batches
+        - Get prioritised action recommendations for expiring inventory
+        - Analyse financial exposure from expiring stock
+
+        The tool scans all batches expiring within the configured risk horizon,
+        calculates net risk quantities against IBP demand forecasts, scores each
+        batch by financial exposure, matches prioritised actions, and returns a
+        complete structured operational report.
+
+        Args:
+            query: The original user query, used to extract optional plant filters
+                   (e.g. "plant=WH01") and pass context to the report.
+
+        Returns:
+            A full markdown operational report with scored batches and recommended actions.
+        """
+        return await _run_agent(query=query, tools=mcp_tools)
+
+    return run_batch_expiry_risk_scan
+
+
 class SampleAgent:
     SUPPORTED_CONTENT_TYPES = ["text", "text/plain"]
 
@@ -281,17 +359,20 @@ class SampleAgent:
         self.llm = ChatLiteLLM(model=get_model_name(), temperature=get_temperature())
         self._checkpointer = InMemorySaver()
         self._last_active: dict[str, float] = {}
-        self._tools = None
-        self._summarization_middleware = SummarizationMiddleware(
-            model=self.llm,
-            trigger=("tokens", 100_000),
-        )
+        self._tools: list | None = None
+        self._graph = None
 
     def _touch(self, thread_id: str) -> None:
         now = time.monotonic()
-        expired = [tid for tid, ts in list(self._last_active.items()) if now - ts > THREAD_TTL_SECONDS]
+        expired = [
+            tid for tid, ts in list(self._last_active.items())
+            if now - ts > THREAD_TTL_SECONDS
+        ]
         for tid in expired:
-            self._checkpointer.delete_thread(tid)
+            try:
+                self._checkpointer.delete_thread(tid)
+            except Exception:
+                pass
             del self._last_active[tid]
             logger.info("Evicted inactive thread: %s", tid)
         self._last_active[thread_id] = now
@@ -302,35 +383,121 @@ class SampleAgent:
             self._tools = await get_mcp_tools()
         return self._tools
 
+    async def _get_graph(self):
+        """Lazy graph construction — builds the ReAct agent once, then caches it.
+
+        Only called in production mode when AI Core credentials are confirmed present.
+        Raises RuntimeError if called without credentials so the error is explicit.
+        """
+        if not _has_llm_credentials():
+            raise RuntimeError(
+                "Cannot build ReAct agent graph: no SAP AI Core credentials found. "
+                "Set AICORE_AUTH_URL, AICORE_CLIENT_ID, and AICORE_CLIENT_SECRET."
+            )
+        if self._graph is None:
+            mcp_tools = await self._get_tools()
+            scan_tool = _make_scan_tool(mcp_tools)
+            self._graph = create_react_agent(
+                self.llm,
+                tools=[scan_tool],
+                checkpointer=self._checkpointer,
+                prompt=get_system_prompt(),
+            )
+            logger.info("ReAct agent graph built with scan tool.")
+        return self._graph
+
     async def stream(
         self,
         query: str,
         context_id: str,
         tools: Sequence[BaseTool] | None = None,
     ) -> AsyncGenerator[dict, None]:
-        """Stream agent responses. Business logic delegated to _run_agent()."""
+        """Stream agent responses.
+
+        Production mode (IBD_TESTING unset): uses a LangGraph ReAct agent so the
+        LLM reasons about each query — it calls run_batch_expiry_risk_scan for scan
+        requests and answers conversational questions directly without triggering the
+        expensive pipeline.
+
+        Test / mock mode (IBD_TESTING=1): no AI Core LLM credentials are available,
+        so the pipeline is invoked directly (preserving existing test behaviour).
+        """
         self._touch(context_id)
         yield {
             "is_task_complete": False,
             "require_user_input": False,
-            "content": "Running batch expiry risk scan...",
+            "content": "Analysing your request...",
         }
 
         try:
-            mcp_tools = await self._get_tools()
-            active_tools = list(tools) + mcp_tools if tools else mcp_tools
-            response = await _run_agent(query=query, tools=active_tools)
+            if not _use_react_agent():
+                # ── Direct-pipeline mode ─────────────────────────────────────
+                # Used when IBD_TESTING=1 OR when AI Core credentials are absent.
+                # Runs the scan pipeline directly without an LLM reasoning step.
+                if not _TESTING and not _has_llm_credentials():
+                    logger.warning(
+                        "No SAP AI Core credentials found (AICORE_AUTH_URL / "
+                        "AICORE_CLIENT_ID not set). Running in direct-pipeline mode. "
+                        "Set AICORE_* environment variables to enable LLM reasoning."
+                    )
+                mcp_tools = await self._get_tools()
+                active_tools = list(tools) + mcp_tools if tools else mcp_tools
+                response = await _run_agent(query=query, tools=active_tools)
+                yield {
+                    "is_task_complete": True,
+                    "require_user_input": False,
+                    "content": response,
+                }
+                return
+
+            # ── Production mode: LLM-driven ReAct agent ──────────────────────
+            graph = await self._get_graph()
+            config = {"configurable": {"thread_id": context_id}}
+
+            # Incorporate any caller-supplied tools by injecting them as context
+            messages: list = [HumanMessage(content=query)]
+            if tools:
+                tool_names = ", ".join(getattr(t, "name", str(t)) for t in tools)
+                messages.insert(
+                    0,
+                    SystemMessage(content=f"Additional context tools available: {tool_names}"),
+                )
+
+            final_content = ""
+            async for chunk in graph.astream(
+                {"messages": messages},
+                config,
+                stream_mode="values",
+            ):
+                chunk_messages = chunk.get("messages", [])
+                if chunk_messages:
+                    last_msg = chunk_messages[-1]
+                    content = getattr(last_msg, "content", "")
+                    # LiteLLM may return content as a list of blocks
+                    if isinstance(content, list):
+                        content = "".join(
+                            part.get("text", "") if isinstance(part, dict) else str(part)
+                            for part in content
+                        )
+                    msg_type = getattr(last_msg, "type", "")
+                    if content and msg_type == "ai":
+                        final_content = content
+
             yield {
                 "is_task_complete": True,
                 "require_user_input": False,
-                "content": response,
+                "content": final_content or "No response generated.",
             }
+
         except Exception as e:
             logger.exception("Agent stream() failed")
             yield {
                 "is_task_complete": True,
                 "require_user_input": False,
-                "content": f"I encountered an error while processing your request: {str(e)}. Please try again.",
+                "content": (
+                    f"I encountered an error while processing your request: {e}. "
+                    "Please try again."
+                ),
             }
 
     async def invoke(

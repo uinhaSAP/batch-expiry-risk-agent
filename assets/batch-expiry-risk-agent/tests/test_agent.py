@@ -166,3 +166,68 @@ async def test_run_agent_plant_filter_parsed():
     assert _parse_plants("Run scan for plant=1000") == ["1000"]
     assert _parse_plants("plants: 1000,2000") == ["1000", "2000"]
     assert _parse_plants("no plant info here") is None
+
+
+def test_make_scan_tool_returns_callable_tool():
+    """_make_scan_tool should return a LangChain tool with the correct name and docstring."""
+    from agent import _make_scan_tool
+
+    scan_tool = _make_scan_tool([])
+    assert scan_tool.name == "run_batch_expiry_risk_scan"
+    assert "SAP EWM" in scan_tool.description
+    assert "IBP" in scan_tool.description
+
+
+def test_testing_flag_is_true_in_test_env():
+    """IBD_TESTING env var should be detected correctly."""
+    from agent import _TESTING
+    # conftest.py sets IBD_TESTING=true; this must be truthy in tests
+    assert _TESTING is True
+
+
+def test_use_react_agent_false_when_no_credentials(monkeypatch):
+    """_use_react_agent() must return False when AICORE_* vars are all absent."""
+    for var in ("AICORE_AUTH_URL", "AICORE_CLIENT_ID", "AICORE_CLIENT_SECRET",
+                "AICORE_SERVICE_KEY", "AICORE_BASE_URL"):
+        monkeypatch.delenv(var, raising=False)
+
+    import importlib
+    import agent as agent_mod
+    # Reload to pick up monkeypatched env; check the helper directly
+    assert agent_mod._has_llm_credentials() is False
+    assert agent_mod._use_react_agent() is False
+
+
+def test_use_react_agent_false_in_test_mode_even_with_credentials(monkeypatch):
+    """_use_react_agent() must return False when _TESTING is True,
+    even if AICORE_AUTH_URL is set."""
+    monkeypatch.setenv("AICORE_AUTH_URL", "https://example.com/oauth/token")
+    import agent as agent_mod
+    # _TESTING is True because IBD_TESTING=1 is set by conftest
+    assert agent_mod._TESTING is True
+    assert agent_mod._use_react_agent() is False
+
+
+@pytest.mark.asyncio
+async def test_stream_uses_direct_pipeline_in_test_mode(mock_mcp_tools):
+    """In IBD_TESTING=1 mode, stream() should invoke the pipeline directly
+    (not the LangGraph ReAct graph) and yield is_task_complete=True."""
+    from agent import SampleAgent
+
+    agent = SampleAgent()
+    chunks = []
+
+    with patch("agent.get_mcp_tools", new=AsyncMock(return_value=mock_mcp_tools)):
+        async for chunk in agent.stream(
+            query="Run batch expiry risk scan",
+            context_id="test-stream-001",
+        ):
+            chunks.append(chunk)
+
+    assert len(chunks) >= 2  # at least the "Analysing" and the final
+    final = chunks[-1]
+    assert final["is_task_complete"] is True
+    assert isinstance(final["content"], str)
+    assert len(final["content"]) > 50
+    # Graph should NOT have been built in test mode
+    assert agent._graph is None

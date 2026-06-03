@@ -1,3 +1,11 @@
+# Load .env from the asset root (one level above app/) — local development only.
+# In production the platform injects env vars directly; this is a no-op if the
+# file is absent (dotenv never raises when the file is missing with override=False).
+from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).parent.parent / ".env", override=False)
+
 # CRITICAL: Initialize telemetry BEFORE importing AI frameworks
 from sap_cloud_sdk.aicore import set_aicore_config
 from sap_cloud_sdk.core.telemetry import auto_instrument
