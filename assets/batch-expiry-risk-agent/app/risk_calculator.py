@@ -46,7 +46,7 @@ async def _fetch_ibp_demand(
 
     try:
         params: dict = {
-            "top": 100,
+            "top": "100",
             "material": material,
             "plant": plant,
         }

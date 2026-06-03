@@ -495,8 +495,8 @@
           "input_schema": {"type": "object", "properties": {"filter": {"type": "string"}, "select": {"type": "string"}, "top": {"type": "string"}}, "required": []},
           "mock_response": {
             "value": [
-              {"EWMWarehouse": "WH01", "WarehouseOrder": "WO-MOCK-001", "Queue": "PICK", "EWMWave": "WAVE-001"},
-              {"EWMWarehouse": "WH01", "WarehouseOrder": "WO-MOCK-002", "Queue": "PACK", "EWMWave": "WAVE-001"}
+              {"EWMWarehouse": "WH01", "WarehouseOrder": "WO-MOCK-001", "Batch": "BATCH-001", "ConfirmedQuantity": "50.000", "Queue": "PICK", "EWMWave": "WAVE-001"},
+              {"EWMWarehouse": "WH01", "WarehouseOrder": "WO-MOCK-002", "Batch": "BATCH-002", "ConfirmedQuantity": "30.000", "Queue": "PACK", "EWMWave": "WAVE-001"}
             ]
           }
         },
@@ -520,9 +520,9 @@
                 "EWMWarehouse": "WH01",
                 "WarehouseTask": "WT-001",
                 "WarehouseTaskItem": "0001",
-                "Product": "MAT-MOCK-001",
+                "Product": "MAT-PHARMA-001",
                 "Batch": "BATCH-001",
-                "ShelfLifeExpirationDate": "/Date(1747267200000)/",
+                "ShelfLifeExpirationDate": "/Date(1781308800000)/",
                 "EWMStockType": "F1",
                 "WarehouseTaskStatus": "A",
                 "TargetQuantityInBaseUnit": "50.000",
@@ -534,9 +534,9 @@
                 "EWMWarehouse": "WH01",
                 "WarehouseTask": "WT-002",
                 "WarehouseTaskItem": "0001",
-                "Product": "MAT-MOCK-002",
+                "Product": "MAT-FOOD-002",
                 "Batch": "BATCH-002",
-                "ShelfLifeExpirationDate": "/Date(1746576000000)/",
+                "ShelfLifeExpirationDate": "/Date(1782172800000)/",
                 "EWMStockType": "F1",
                 "WarehouseTaskStatus": "A",
                 "TargetQuantityInBaseUnit": "30.000",

@@ -16,11 +16,40 @@ logger = logging.getLogger(__name__)
 
 
 def _find_tool(tools: list[Any], keywords: list[str]) -> Any | None:
-    """Find the first MCP tool whose name contains any of the keywords."""
+    """Find the best MCP tool whose name contains any of the keywords.
+
+    Three-pass priority:
+    1. Tools whose names START with ``list_`` — the canonical data-listing tools.
+    2. Any tool that matches but is NOT a metadata / schema / mutation tool.
+    3. Any matching tool as a last resort.
+
+    This prevents e.g. ``get_metadata_cds_api_batch_srv`` from shadowing
+    ``list_batch_for_cds_api_batch_srv`` just because both share the same
+    service-name suffix.
+    """
+    # Non-data tool prefixes to skip in the first two passes
+    _NON_DATA = ("get_metadata_", "batch_for_", "count_", "create_", "update_", "delete_", "action_")
+
+    # Pass 1: prefer canonical list_* tools
+    for kw in keywords:
+        for tool in tools:
+            name = tool.name.lower()
+            if kw.lower() in name and name.startswith("list_"):
+                return tool
+
+    # Pass 2: any match excluding known non-data tool types
+    for kw in keywords:
+        for tool in tools:
+            name = tool.name.lower()
+            if kw.lower() in name and not any(name.startswith(p) for p in _NON_DATA):
+                return tool
+
+    # Pass 3: unconstrained fallback
     for kw in keywords:
         for tool in tools:
             if kw.lower() in tool.name.lower():
                 return tool
+
     return None
 
 
@@ -77,11 +106,17 @@ def _extract_batch_records_from_tool_response(
     # Handle OData wrapper formats
     if isinstance(data, dict):
         if "value" in data:
+            # OData v4: {"value": [...]}
             items = data["value"]
         elif "d" in data and "results" in data.get("d", {}):
+            # OData v2 standard: {"d": {"results": [...]}}
             items = data["d"]["results"]
         elif "d" in data:
+            # OData v2 single entity: {"d": {...}}
             items = [data["d"]] if isinstance(data["d"], dict) else data["d"]
+        elif "results" in data:
+            # OData v2 bare: {"results": [...]} (some SAP on-prem services omit the "d" envelope)
+            items = data["results"]
         else:
             items = [data]
     elif isinstance(data, list):
@@ -171,7 +206,7 @@ async def fetch_open_orders(tools: list[Any]) -> dict[str, float]:
         return {}
 
     try:
-        response = await tool.arun({"top": 100})
+        response = await tool.arun({"top": "100"})
         import json
         data = json.loads(response) if isinstance(response, str) else response
 
@@ -230,7 +265,8 @@ async def scan_at_risk_batches(
     logger.info("Using tool '%s' for batch scan", primary_tool.name)
 
     # 3. Build filter for plants if specified
-    tool_params: dict = {"top": 100}
+    # OData query params ($top, $skip) are string-typed in MCP schemas — pass as strings
+    tool_params: dict = {"top": "100"}
     if plants:
         tool_params["filter"] = f"Plant in ({','.join(repr(p) for p in plants)})"
 
@@ -250,7 +286,7 @@ async def scan_at_risk_batches(
     sl_tool = _find_tool(tools, ["shelf_life", "shelflife", "slversion"])
     if sl_tool and records:
         try:
-            sl_response = await sl_tool.arun({"top": 100})
+            sl_response = await sl_tool.arun({"top": "100"})
             import json
             sl_data = json.loads(sl_response) if isinstance(sl_response, str) else sl_response
             sl_items = (

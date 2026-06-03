@@ -66,7 +66,7 @@ async def _check_redistribution(
         return None
 
     try:
-        response = await bin_tool.arun({"top": 100, "plant": batch.plant})
+        response = await bin_tool.arun({"top": "100", "plant": batch.plant})
         data = json.loads(response) if isinstance(response, str) else response
         items = (
             data.get("value", []) if isinstance(data, dict) and "value" in data
@@ -211,7 +211,7 @@ async def _check_rtv(
 
     if rtv_tool is not None:
         try:
-            response = await rtv_tool.arun({"top": 100, "material": batch.material})
+            response = await rtv_tool.arun({"top": "100", "material": batch.material})
             data = json.loads(response) if isinstance(response, str) else response
             items = (
                 data.get("value", []) if isinstance(data, dict) and "value" in data
